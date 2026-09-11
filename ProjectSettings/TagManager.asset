@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Move
+  - MoveForward
+  - MoveRight
+  - MoveLeft
   - Pickup
   - Inspect
-  - 
-  - 
   - 
   - 
   - 

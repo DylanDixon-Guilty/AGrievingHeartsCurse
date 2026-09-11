@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform defaultPosition;
     [SerializeField] private Transform currentNode;
+    [SerializeField] private MouseIconController _mouseIconController;
 
     private Stack<Transform> _nodeHistory = new Stack<Transform>();
 
@@ -17,6 +18,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        CheckHover();
+
         //Will detect if it hit a collider
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -60,5 +63,47 @@ public class PlayerInteraction : MonoBehaviour
 
         currentNode = _nodeHistory.Pop();
         _camera.transform.position = currentNode.position;
+    }
+
+    /// <summary>
+    /// Will check what the player is hovering over and change the mouse icon accordingly
+    /// </summary>
+    private void CheckHover()
+    {
+        Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            int layer = hit.collider.gameObject.layer;
+
+            if (layer == LayerMask.NameToLayer("MoveForward"))
+            {
+                _mouseIconController.SetGoForwardCursor();
+            }
+            else if (layer == LayerMask.NameToLayer("MoveRight"))
+            {
+                _mouseIconController.SetGoRightCursor();
+            }
+            else if (layer == LayerMask.NameToLayer("MoveLeft"))
+            {
+                _mouseIconController.SetGoLeftCursor();
+            }
+            else if (layer == LayerMask.NameToLayer("Pickup"))
+            {
+                _mouseIconController.SetGrabCursor();
+            }
+            else if (layer == LayerMask.NameToLayer("Inspect"))
+            {
+                _mouseIconController.SetInspectCursor();
+            }
+            else
+            {
+                _mouseIconController.SetDefaultCursor();
+            }
+        }
+        else
+        {
+            _mouseIconController.SetDefaultCursor();
+        }
     }
 }
