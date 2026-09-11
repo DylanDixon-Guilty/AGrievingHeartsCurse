@@ -3,9 +3,10 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Image BackPack;
-    [SerializeField] private Sprite ClosedPack;
-    [SerializeField] private Sprite OpenedPack;
+    [SerializeField] private Image backPack;
+    [SerializeField] private GameObject hotBar;
+    [SerializeField] private Sprite closedPack;
+    [SerializeField] private Sprite openedPack;
 
     private bool isBackPackOpen;
 
@@ -13,12 +14,14 @@ public class Inventory : MonoBehaviour
     {
         if (!isBackPackOpen)
         {
-            BackPack.sprite = OpenedPack;
+            backPack.sprite = openedPack;
+            hotBar.SetActive(true);
             isBackPackOpen = true;
         }
         else
         {
-            BackPack.sprite = ClosedPack;
+            backPack.sprite = closedPack;
+            hotBar.SetActive(false);
             isBackPackOpen = false;
         }
     }
