@@ -2,12 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Handles where the player goes and what they can do: pick up, inspect, move, talk to NPC, etc.
+/// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform defaultPosition;
     [SerializeField] private Transform currentNode;
     [SerializeField] private MouseIconController _mouseIconController;
+    [SerializeField] private Inventory _inventory;
 
     private Stack<Transform> _nodeHistory = new Stack<Transform>();
 
@@ -36,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour
 
                 if (lootable != null)
                 {
-                    lootable.PickUp();
+                    lootable.PickUp(_inventory);
                 }
             }
         }

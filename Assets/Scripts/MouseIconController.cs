@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Set the correct cursor based on where it is located on the screen.
+/// </summary>
 public class MouseIconController : MonoBehaviour
 {
     [SerializeField] private Texture2D _defaultIcon;

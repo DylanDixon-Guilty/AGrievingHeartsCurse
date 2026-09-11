@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3455035992793656915}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.28191, y: -34.90044, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc7a898fe350b241bfe15a6d2c28962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lootable
+  _itemsData: {fileID: 11400000, guid: 24eab21d891c7f14fbe770d5dc5c7794, type: 2}
 --- !u!65 &3649768880541510510
 BoxCollider:
   m_ObjectHideFlags: 0
