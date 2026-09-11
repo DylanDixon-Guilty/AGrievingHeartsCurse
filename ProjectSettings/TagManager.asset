@@ -14,7 +14,7 @@ TagManager:
   - MoveForward
   - MoveRight
   - MoveLeft
-  - Pickup
+  - Lootable
   - Inspect
   - 
   - 

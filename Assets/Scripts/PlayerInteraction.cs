@@ -27,10 +27,16 @@ public class PlayerInteraction : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 CameraHotSpot hotspot = hit.collider.GetComponent<CameraHotSpot>();
+                Lootable lootable = hit.collider.GetComponent<Lootable>();
 
                 if (hotspot != null)
                 {
                     MoveCamera(hotspot.Node);
+                }
+
+                if (lootable != null)
+                {
+                    lootable.PickUp();
                 }
             }
         }
@@ -88,7 +94,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 _mouseIconController.SetGoLeftCursor();
             }
-            else if (layer == LayerMask.NameToLayer("Pickup"))
+            else if (layer == LayerMask.NameToLayer("Lootable"))
             {
                 _mouseIconController.SetGrabCursor();
             }
