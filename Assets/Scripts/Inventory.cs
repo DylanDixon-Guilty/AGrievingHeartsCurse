@@ -8,13 +8,15 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private Image backPack;
-    [SerializeField] private Image hotbarSlot;
     [SerializeField] private GameObject hotBar;
+    [SerializeField] private GameObject hotBarContainer01;
+    [SerializeField] private GameObject hotBarContainer02;
     [SerializeField] private Sprite closedPack;
     [SerializeField] private Sprite openedPack;
+    [SerializeField] private Image[] hotbarSlots;
 
     private bool isBackPackOpen;
-    private List<ItemsData> _items = new List<ItemsData>();
+    private ItemsData[] _items = new ItemsData[12];
 
     private void Start()
     {
@@ -37,9 +39,37 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// By clicking on the arrows on the hotbar, it will swap to the next set of inventory slots.
+    /// </summary>
+    public void SwitchInventory()
+    {
+        if (hotBarContainer01.activeSelf)
+        {
+            hotBarContainer01.SetActive(false);
+            hotBarContainer02.SetActive(true);
+        }
+        else
+        {
+            hotBarContainer01.SetActive(true);
+            hotBarContainer02.SetActive(false);
+        }
+    }
+
     public void AddItem(ItemsData item)
     {
-        _items.Add(item);
-        hotbarSlot.sprite = item.ItemSprite;
+        for (int i = 0; i < _items.Length; i++)
+        {
+            if (_items[i] == null)
+            {
+                _items[i] = item;
+
+                hotbarSlots[i].sprite = item.ItemSprite;
+
+                Debug.Log($"Added {item.ItemName} to inventory slot {i + 1}.");
+
+                return;
+            }
+        }
     }
 }
