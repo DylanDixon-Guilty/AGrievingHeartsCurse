@@ -88,32 +88,32 @@ public class PlayerInteraction : MonoBehaviour
 
             if (layer == LayerMask.NameToLayer("MoveForward"))
             {
-                _mouseIconController.SetGoForwardCursor();
+                _mouseIconController.SetCursor(MouseIconType.GoForward);
             }
             else if (layer == LayerMask.NameToLayer("MoveRight"))
             {
-                _mouseIconController.SetGoRightCursor();
+                _mouseIconController.SetCursor(MouseIconType.GoRight);
             }
             else if (layer == LayerMask.NameToLayer("MoveLeft"))
             {
-                _mouseIconController.SetGoLeftCursor();
+                _mouseIconController.SetCursor(MouseIconType.GoLeft);
             }
             else if (layer == LayerMask.NameToLayer("Lootable"))
             {
-                _mouseIconController.SetGrabCursor();
+                _mouseIconController.SetCursor(MouseIconType.Grab);
             }
             else if (layer == LayerMask.NameToLayer("Inspect"))
             {
-                _mouseIconController.SetInspectCursor();
+                _mouseIconController.SetCursor(MouseIconType.Inspect);
             }
             else
             {
-                _mouseIconController.SetDefaultCursor();
+                _mouseIconController.SetCursor(MouseIconType.Default);
             }
         }
         else
         {
-            _mouseIconController.SetDefaultCursor();
+            _mouseIconController.SetCursor(MouseIconType.Default);
         }
     }
 }

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+
 /// <summary>
 /// Set the correct cursor based on where it is located on the screen.
 /// </summary>
@@ -7,43 +9,39 @@ public class MouseIconController : MonoBehaviour
 {
     [SerializeField] private Texture2D _defaultIcon;
     [SerializeField] private Texture2D _grabIcon;
-    [SerializeField] private Texture2D _InspectIcon;
-    [SerializeField] private Texture2D _GoForwardIcon;
-    [SerializeField] private Texture2D _GoRightIcon;
-    [SerializeField] private Texture2D _GoLeftIcon;
+    [SerializeField] private Texture2D _inspectIcon;
+    [SerializeField] private Texture2D _goForwardIcon;
+    [SerializeField] private Texture2D _goRightIcon;
+    [SerializeField] private Texture2D _goLeftIcon;
 
-    private void Start()
+    private Vector2 cursorHotspot = new Vector2(25, 0);
+    private bool isHoldingItem;
+    private Sprite heldItemSprite; // The sprite used when holding an item in the hotbar (reference: ItemsData)
+
+    /// <summary>
+    /// Sets the cursor type when hovering over or clicking on an item.
+    /// </summary>
+    public void SetCursor(MouseIconType cursorType)
     {
-        Cursor.SetCursor(_defaultIcon, new Vector2(25, 0), CursorMode.ForceSoftware);
+        Texture2D cursorIcon = cursorType switch
+        {
+            MouseIconType.Default => _defaultIcon,
+            MouseIconType.Grab => _grabIcon,
+            MouseIconType.Inspect => _inspectIcon,
+            MouseIconType.GoForward => _goForwardIcon,
+            MouseIconType.GoRight => _goRightIcon,
+            MouseIconType.GoLeft => _goLeftIcon,
+            _ => _defaultIcon
+        };
+
+        Cursor.SetCursor(cursorIcon, cursorHotspot, CursorMode.ForceSoftware);
     }
 
-    public void SetDefaultCursor() 
+    public void SetHeldItem(ItemsData item)
     {
-        Cursor.SetCursor(_defaultIcon, new Vector2(25, 0), CursorMode.ForceSoftware);
-    }
+        isHoldingItem = true;
+        heldItemSprite = item.HeldItemSprite;
 
-    public void SetGrabCursor()
-    {
-        Cursor.SetCursor(_grabIcon, new Vector2(25, 0), CursorMode.ForceSoftware);
-    }
-
-    public void SetInspectCursor()
-    {
-        Cursor.SetCursor(_InspectIcon, new Vector2(25, 0), CursorMode.ForceSoftware);
-    }
-
-    public void SetGoForwardCursor()
-    {
-        Cursor.SetCursor(_GoForwardIcon, new Vector2(25, 0), CursorMode.ForceSoftware);
-    }
-
-    public void SetGoRightCursor()
-    {
-        Cursor.SetCursor(_GoRightIcon, new Vector2(25, 0), CursorMode.ForceSoftware);
-    }
-
-    public void SetGoLeftCursor()
-    {
-        Cursor.SetCursor(_GoLeftIcon, new Vector2(25, 0), CursorMode.ForceSoftware);
+        Cursor.SetCursor(heldItemSprite.texture, Vector2.zero, CursorMode.Auto);
     }
 }

@@ -1728,10 +1728,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MouseIconController
   _defaultIcon: {fileID: 2800000, guid: ed71bb987f4c8ea45a0361964fb90be4, type: 3}
   _grabIcon: {fileID: 2800000, guid: b6e7ca008b8748d4e973fa94daa6a475, type: 3}
-  _InspectIcon: {fileID: 2800000, guid: 60143fe3e18729941b3d30f4263f4546, type: 3}
-  _GoForwardIcon: {fileID: 2800000, guid: 96365b0178e860d4b90952b89c8a5b24, type: 3}
-  _GoRightIcon: {fileID: 2800000, guid: 261b763a5321d9e42b8775fc8819efed, type: 3}
-  _GoLeftIcon: {fileID: 2800000, guid: ade783f8413cd0b4c806ce5ee399587a, type: 3}
+  _inspectIcon: {fileID: 2800000, guid: 60143fe3e18729941b3d30f4263f4546, type: 3}
+  _goForwardIcon: {fileID: 2800000, guid: 96365b0178e860d4b90952b89c8a5b24, type: 3}
+  _goRightIcon: {fileID: 2800000, guid: 261b763a5321d9e42b8775fc8819efed, type: 3}
+  _goLeftIcon: {fileID: 2800000, guid: ade783f8413cd0b4c806ce5ee399587a, type: 3}
 --- !u!114 &1057350617
 MonoBehaviour:
   m_ObjectHideFlags: 0

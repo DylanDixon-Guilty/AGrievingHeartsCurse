@@ -8,4 +8,6 @@ public class ItemsData : ScriptableObject
 {
     public string ItemName;
     public Sprite ItemSprite;
+    [Header("The item the player will be holding when clicking on the item in hotbar.")]
+    public Sprite HeldItemSprite;
 }
