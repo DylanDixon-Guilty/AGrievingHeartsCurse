@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -7,12 +8,12 @@ using UnityEngine;
 /// </summary>
 public class MouseIconController : MonoBehaviour
 {
-    [SerializeField] private Texture2D _defaultIcon;
-    [SerializeField] private Texture2D _grabIcon;
-    [SerializeField] private Texture2D _inspectIcon;
-    [SerializeField] private Texture2D _goForwardIcon;
-    [SerializeField] private Texture2D _goRightIcon;
-    [SerializeField] private Texture2D _goLeftIcon;
+    [SerializeField] private Texture2D defaultIcon;
+    [SerializeField] private Texture2D grabIcon;
+    [SerializeField] private Texture2D inspectIcon;
+    [SerializeField] private Texture2D goForwardIcon;
+    [SerializeField] private Texture2D goRightIcon;
+    [SerializeField] private Texture2D goLeftIcon;
 
     private Vector2 cursorHotspot = new Vector2(25, 0);
     private bool isHoldingItem;
@@ -23,25 +24,37 @@ public class MouseIconController : MonoBehaviour
     /// </summary>
     public void SetCursor(MouseIconType cursorType)
     {
+        if (isHoldingItem) //Check to see if the player is holding an item.
+        {
+            return;
+        }
+
         Texture2D cursorIcon = cursorType switch
         {
-            MouseIconType.Default => _defaultIcon,
-            MouseIconType.Grab => _grabIcon,
-            MouseIconType.Inspect => _inspectIcon,
-            MouseIconType.GoForward => _goForwardIcon,
-            MouseIconType.GoRight => _goRightIcon,
-            MouseIconType.GoLeft => _goLeftIcon,
-            _ => _defaultIcon
+            MouseIconType.Default => defaultIcon,
+            MouseIconType.Grab => grabIcon,
+            MouseIconType.Inspect => inspectIcon,
+            MouseIconType.GoForward => goForwardIcon,
+            MouseIconType.GoRight => goRightIcon,
+            MouseIconType.GoLeft => goLeftIcon,
+            _ => defaultIcon
         };
 
         Cursor.SetCursor(cursorIcon, cursorHotspot, CursorMode.ForceSoftware);
     }
 
-    public void SetHeldItem(ItemsData item)
+    /// <summary>
+    /// When the player is no longer holding an item
+    /// </summary>
+    public void ClearHeldItem()
+    {
+        isHoldingItem = false;
+        SetCursor(MouseIconType.Default);
+    }
+
+    public void SetHeldItemCursor(Sprite _itemSprite)
     {
         isHoldingItem = true;
-        heldItemSprite = item.HeldItemSprite;
-
-        Cursor.SetCursor(heldItemSprite.texture, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(_itemSprite.texture, cursorHotspot, CursorMode.ForceSoftware);
     }
 }

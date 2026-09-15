@@ -13,14 +13,23 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject hotBarContainer02;
     [SerializeField] private Sprite closedPack;
     [SerializeField] private Sprite openedPack;
-    [SerializeField] private Image[] hotbarSlots;
+    [SerializeField] private Button[] hotbarSlots;
+    [SerializeField] private MouseIconController _mouseIconController;
+    [SerializeField] private Color selectedItemColor = Color.gray; //When an item is selected, the hot-bar will darken it out
 
     private bool isBackPackOpen;
     private ItemsData[] _items = new ItemsData[12];
+    private ItemsData _selectedItem;
 
     private void Start()
     {
         hotBar.SetActive(false);
+
+        for (int i = 0; i < hotbarSlots.Length; i++)
+        {
+            int slotIndex = i;
+            hotbarSlots[i].onClick.AddListener(() => SelectItem(slotIndex));
+        }
     }
 
     public void OpenBackPack()
@@ -56,6 +65,9 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Add the corresponding item to player's inventory
+    /// </summary>
     public void AddItem(ItemsData item)
     {
         for (int i = 0; i < _items.Length; i++)
@@ -64,12 +76,38 @@ public class Inventory : MonoBehaviour
             {
                 _items[i] = item;
 
-                hotbarSlots[i].sprite = item.ItemSprite;
+                hotbarSlots[i].image.sprite = item.ItemSprite;
 
                 Debug.Log($"Added {item.ItemName} to inventory slot {i + 1}.");
 
                 return;
             }
         }
+    }
+
+    /// <summary>
+    /// Change the mouse icon based on the selected item
+    /// </summary>
+    public void SelectItem(int _slotIndex)
+    {
+        if (_items[_slotIndex] == null)
+        {
+            return;
+        }
+
+        if (_selectedItem == _items[_slotIndex])
+        {
+            _selectedItem = null;
+            _mouseIconController.ClearHeldItem();
+
+            Debug.Log("Item deselected.");
+
+            return;
+        }
+
+        _selectedItem = _items[_slotIndex];
+        _mouseIconController.SetHeldItemCursor(_selectedItem.HeldItemSprite);
+
+        Debug.Log($"Selected {_selectedItem.ItemName}.");
     }
 }
