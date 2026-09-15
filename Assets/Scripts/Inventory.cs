@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Where the player can interact with items they have
@@ -14,6 +16,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Sprite closedPack;
     [SerializeField] private Sprite openedPack;
     [SerializeField] private Button[] hotbarSlots;
+    [SerializeField] private TMP_Text[] hotbarItemNames;
     [SerializeField] private MouseIconController _mouseIconController;
     [SerializeField] private Color selectedItemColor = Color.gray; //When an item is selected, the hot-bar will darken it out
 
@@ -29,6 +32,18 @@ public class Inventory : MonoBehaviour
         {
             int slotIndex = i;
             hotbarSlots[i].onClick.AddListener(() => SelectItem(slotIndex));
+
+            EventTrigger trigger = hotbarSlots[i].gameObject.AddComponent<EventTrigger>();
+
+            EventTrigger.Entry pointerEnter = new EventTrigger.Entry();
+            pointerEnter.eventID = EventTriggerType.PointerEnter;
+            pointerEnter.callback.AddListener((data) => ShowItemName(slotIndex));
+            trigger.triggers.Add(pointerEnter);
+
+            EventTrigger.Entry pointerExit = new EventTrigger.Entry();
+            pointerExit.eventID = EventTriggerType.PointerExit;
+            pointerExit.callback.AddListener((data) => HideItemName(slotIndex));
+            trigger.triggers.Add(pointerExit);
         }
     }
 
@@ -92,12 +107,14 @@ public class Inventory : MonoBehaviour
     {
         if (_items[_slotIndex] == null)
         {
+            Debug.LogWarning("Slot contains nothing or is missing a component");
             return;
         }
 
         if (_selectedItem == _items[_slotIndex])
         {
             _selectedItem = null;
+            hotbarSlots[_slotIndex].image.color = Color.white;
             _mouseIconController.ClearHeldItem();
 
             Debug.Log("Item deselected.");
@@ -105,9 +122,38 @@ public class Inventory : MonoBehaviour
             return;
         }
 
+        if (_selectedItem != null)
+        {
+            for (int i = 0; i < _items.Length; i++)
+            {
+                if (_items[i] == _selectedItem)
+                {
+                    hotbarSlots[i].image.color = Color.white;
+                    break;
+                }
+            }
+        }
+
         _selectedItem = _items[_slotIndex];
+        hotbarSlots[_slotIndex].image.color = selectedItemColor;
         _mouseIconController.SetHeldItemCursor(_selectedItem.HeldItemSprite);
 
         Debug.Log($"Selected {_selectedItem.ItemName}.");
+    }
+
+    public void ShowItemName(int _slotIndex) // When hovering over an item in the hot-bar
+    {
+        if (_items[_slotIndex] == null)
+        {
+            return;
+        }
+
+        hotbarItemNames[_slotIndex].text = _items[_slotIndex].ItemName;
+        hotbarItemNames[_slotIndex].gameObject.SetActive(true);
+    }
+
+    public void HideItemName(int _slotIndex) // When no longer hovering over an item in the hot-bar
+    {
+        hotbarItemNames[_slotIndex].gameObject.SetActive(false);
     }
 }

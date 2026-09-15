@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemsData
   ItemName: Hammer
   ItemSprite: {fileID: 21300000, guid: b76d76f64c0d011499e5c21abd24b2c6, type: 3}
-  HeldItemSprite: {fileID: 0}
+  HeldItemSprite: {fileID: 21300000, guid: e1c39cd6075232e41867adea21dfc6a2, type: 3}

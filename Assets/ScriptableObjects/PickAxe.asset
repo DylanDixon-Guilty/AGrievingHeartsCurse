@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3d51c3c5374534290aeefec54ae269, type: 3}
   m_Name: PickAxe
   m_EditorClassIdentifier: Assembly-CSharp::ItemsData
-  ItemName: Pick Axe
+  ItemName: Pickaxe
   ItemSprite: {fileID: 21300000, guid: b28814e21eb69184291e70eb51b93cf1, type: 3}
   HeldItemSprite: {fileID: 21300000, guid: 1081954c5ecf7b9478cc0ea945e56ce1, type: 3}
