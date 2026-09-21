@@ -338,34 +338,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 22425850}
     m_Modifications:
-    - target: {fileID: 1858170358771207976, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: conversationUIElements.defaultMenuPanel
-      value: 
-      objectReference: {fileID: 2397231656473412508}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: alertUIElements.alertText.m_textMeshProUGUI
-      value: 
-      objectReference: {fileID: 2615030599652230123}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: conversationUIElements.defaultPCSubtitlePanel
-      value: 
-      objectReference: {fileID: 4665928596133823904}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: conversationUIElements.defaultNPCSubtitlePanel
-      value: 
-      objectReference: {fileID: 4665928596133823904}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: conversationUIElements.subtitlePanels.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: 'conversationUIElements.subtitlePanels.Array.data[0]'
-      value: 
-      objectReference: {fileID: 4665928596133823904}
     - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -450,48 +422,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue-UI
       objectReference: {fileID: 0}
-    - target: {fileID: 8222211045298533043, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
---- !u!114 &2397231656473412508 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6590377984959774680, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-  m_PrefabInstance: {fileID: 8804841431320476740}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a44b96aa95563e4dbd81da44328a697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.StandardUIMenuPanel
---- !u!114 &2615030599652230123 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6808141742671658927, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-  m_PrefabInstance: {fileID: 8804841431320476740}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &4665928596133823904 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4247354010087684580, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-  m_PrefabInstance: {fileID: 8804841431320476740}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a9540f98bb79346b296ec5feb51073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.StandardUISubtitlePanel
 --- !u!224 &6530767653546723663 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
