@@ -14,6 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Inventory _inventory;
 
     private Stack<Transform> _nodeHistory = new Stack<Transform>();
+    private bool isDialogueActive;
 
     private void Awake()
     {
@@ -22,6 +23,12 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
+        if (isDialogueActive) //Check to see if a dialogue is active
+        {
+            _mouseIconController.SetCursor(MouseIconType.Default);
+            return;
+        }
+
         CheckHover();
 
         //Will detect if it hit a collider
@@ -32,6 +39,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 CameraHotSpot hotspot = hit.collider.GetComponent<CameraHotSpot>();
                 Lootable lootable = hit.collider.GetComponent<Lootable>();
+                DialogueStarter dialogueStarter = hit.collider.GetComponent<DialogueStarter>();
 
                 if (hotspot != null)
                 {
@@ -41,6 +49,12 @@ public class PlayerInteraction : MonoBehaviour
                 if (lootable != null)
                 {
                     lootable.PickUp(_inventory);
+                }
+
+                if (dialogueStarter != null)
+                {
+                    dialogueStarter.StartDialogue();
+                    return;
                 }
             }
         }
@@ -115,5 +129,13 @@ public class PlayerInteraction : MonoBehaviour
         {
             _mouseIconController.SetCursor(MouseIconType.Default);
         }
+    }
+
+    /// <summary>
+    /// Set the boolean to true or false
+    /// </summary>
+    public void SetDialogueActive(bool active)
+    {
+        isDialogueActive = active;
     }
 }
