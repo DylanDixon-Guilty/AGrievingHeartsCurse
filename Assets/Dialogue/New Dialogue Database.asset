@@ -339,7 +339,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Nothin' Just wanted to say I love you.
+        value: Nothin'. Just wanted to say I love you.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence

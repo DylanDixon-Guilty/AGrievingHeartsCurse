@@ -5036,10 +5036,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1983016778}
     m_Modifications:
-    - target: {fileID: 1250334120210966327, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Transition
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5120,6 +5116,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5478595377860479784, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595950274732615910, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 70.726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5595950274732615910, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 83.9871
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e449d9957fb7b8449c3bb07efc6339c, type: 3}
+    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7525513512896520841, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_Name
       value: Dialogue-UI
@@ -5127,7 +5151,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4107921672949227589, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2041136263}
   m_SourcePrefab: {fileID: 100100000, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
 --- !u!1 &1861073218 stripped
 GameObject:
@@ -5718,6 +5745,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030508274}
   m_CullTransparentMesh: 1
+--- !u!1 &2041136259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4107921672949227589, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+  m_PrefabInstance: {fileID: 1861073217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2041136263
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041136259}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4928662e1bc7cc4297caa629126e1e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2066623918
 GameObject:
   m_ObjectHideFlags: 0
