@@ -2578,17 +2578,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!114 &1000773878 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2914418078077497386, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-  m_PrefabInstance: {fileID: 1861073217}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c812308255e374f83c1e475bc0c826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.Wrappers.UIPanel
 --- !u!1 &1057350613
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,7 +4317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
   mainUI: {fileID: 1298393026}
-  dialogueUI: {fileID: 1853616563}
   conversationName: Starting Dialogue(Demo)
   _playerInteraction: {fileID: 1057350614}
 --- !u!1 &1632819559
@@ -5040,11 +5028,6 @@ PrefabInstance:
       addedObject: {fileID: 1861073219}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
---- !u!1 &1853616563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 125852, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
-  m_PrefabInstance: {fileID: 1846640702}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1861073217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5054,31 +5037,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1983016778}
     m_Modifications:
     - target: {fileID: 1250334120210966327, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250334120210966327, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.7610062
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250334120210966327, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.7610062
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250334120210966327, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.7610062
-      objectReference: {fileID: 0}
-    - target: {fileID: 1439425258563290848, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: conversationUIElements.mainPanel
-      value: 
-      objectReference: {fileID: 1000773878}
-    - target: {fileID: 2210580198354312223, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: conversationUIElements.waitForMainPanelOpen
+      propertyPath: m_Transition
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
@@ -5112,18 +5071,6 @@ PrefabInstance:
     - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5171,10 +5118,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5478595377860479784, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7525513512896520841, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}

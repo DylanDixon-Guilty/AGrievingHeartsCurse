@@ -4,7 +4,6 @@ using PixelCrushers.DialogueSystem;
 public class DialogueStarter : MonoBehaviour
 {
     [SerializeField] private GameObject mainUI;
-    [SerializeField] private GameObject dialogueUI;
     [SerializeField] private string conversationName;
     [SerializeField] private PlayerInteraction _playerInteraction;
 
@@ -15,7 +14,8 @@ public class DialogueStarter : MonoBehaviour
 
     private void OnDisable()
     {
-        DialogueManager.instance.conversationEnded -= OnConversationEnd;
+        if (DialogueManager.instance != null) DialogueManager.instance.conversationEnded -= OnConversationEnd;
+
     }
 
     /// <summary>
@@ -29,7 +29,7 @@ public class DialogueStarter : MonoBehaviour
         DialogueManager.StartConversation(conversationName);
     }
 
-    private void OnConversationEnd(Transform actor)
+    private void OnConversationEnd(Transform _actor)
     {
         mainUI.SetActive(true);
         _playerInteraction.SetDialogueActive(false);
