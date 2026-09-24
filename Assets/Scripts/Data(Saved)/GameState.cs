@@ -5,19 +5,19 @@ public class GameState : MonoBehaviour
 {
     private Dictionary<string, bool> flags = new Dictionary<string, bool>();
 
-    public bool GetFlag(string flagName)
+    public bool GetFlag(string _flagName)
     {
-        if (flags.TryGetValue(flagName, out bool value))
+        if (flags.TryGetValue(_flagName, out bool _value))
         {
-            return value;
+            return _value;
         }
 
         return false;
     }
 
-    public void SetFlag(string flagName, bool value)
+    public void SetFlag(string _flagName, bool _value)
     {
-        flags[flagName] = value;
+        flags[_flagName] = _value;
     }
 
     public Dictionary<string, bool> GetAllFlags()
@@ -25,16 +25,17 @@ public class GameState : MonoBehaviour
         return new Dictionary<string, bool>(flags);
     }
 
-    public void SetAllFlags(Dictionary<string, bool> savedFlags)
+    public void SetAllFlags(Dictionary<string, bool> _savedFlags)
     {
-        flags = new Dictionary<string, bool>(savedFlags);
+        flags = new Dictionary<string, bool>(_savedFlags);
     }
 
     /// <summary>
     /// For testing to see if the flag is being called correctly
     /// </summary>
-    public void DebugFlag(string flagName)
+    public void DebugAllFlags()
     {
-        Debug.Log($"{flagName}: {GetFlag(flagName)}");
+        Debug.Log($"HiddenLanguageDiscovered: {GetFlag("HiddenLanguageDiscovered")}");
+        Debug.Log($"PillarUnlocked: {GetFlag("PillarUnlocked")}");
     }
 }
