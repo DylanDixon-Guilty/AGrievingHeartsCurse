@@ -2927,6 +2927,8 @@ GameObject:
   - component: {fileID: 1057350614}
   - component: {fileID: 1057350616}
   - component: {fileID: 1057350617}
+  - component: {fileID: 1057350618}
+  - component: {fileID: 1057350619}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3030,6 +3032,31 @@ MonoBehaviour:
   - {fileID: 91004268}
   _mouseIconController: {fileID: 1057350616}
   selectedItemColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+--- !u!114 &1057350618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057350613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ae4b23cbf3a2e4a877ccbc41e7b2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameState
+--- !u!114 &1057350619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057350613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de117d2f1202d7946ae32a6d00bd3fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueGameState
+  _gameState: {fileID: 1057350618}
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,7 +4682,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
   mainUI: {fileID: 1298393026}
   conversationName: HiddenLanguage
+  flagToSetOnConversationEnd: HiddenLanguageDiscovered
+  requiredFlag: 
   _playerInteraction: {fileID: 1057350614}
+  _gameState: {fileID: 1057350618}
 --- !u!1 &1632819559
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,7 +6524,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 9.039999, y: 18.719997, z: 0.19999999}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6510,9 +6540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c63a2a08acca736489ae38e6007eba88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
-  mainUI: {fileID: 0}
-  conversationName: 
-  _playerInteraction: {fileID: 0}
+  mainUI: {fileID: 1298393026}
+  conversationName: Pillar
+  flagToSetOnConversationEnd: PillarUnlocked
+  requiredFlag: HiddenLanguageDiscovered
+  _playerInteraction: {fileID: 1057350614}
+  _gameState: {fileID: 1057350618}
 --- !u!1001 &4505891008149960671
 PrefabInstance:
   m_ObjectHideFlags: 0

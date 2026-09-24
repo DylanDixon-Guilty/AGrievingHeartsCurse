@@ -2200,8 +2200,8 @@ MonoBehaviour:
   showUnusedButtons: 0
   buttons:
   - {fileID: 3866467033605668686}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7724016957046783505}
+  - {fileID: 3732066003111193183}
   buttonTemplate: {fileID: 0}
   buttonTemplateHolder: {fileID: 0}
   buttonTemplateScrollbar: {fileID: 0}

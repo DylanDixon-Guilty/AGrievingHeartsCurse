@@ -5,12 +5,13 @@ public class DialogueStarter : MonoBehaviour
 {
     [SerializeField] private GameObject mainUI;
     [SerializeField] private string conversationName;
-    [SerializeField] private PlayerInteraction _playerInteraction;
 
-    private void OnEnable()
-    {
-        DialogueManager.instance.conversationEnded += OnConversationEnd;
-    }
+    [Header("Use flag if player has comepleted progression in story")]
+    [SerializeField] private string flagToSetOnConversationEnd;
+    [SerializeField] private string requiredFlag;
+
+    [SerializeField] private PlayerInteraction _playerInteraction;
+    [SerializeField] private GameState _gameState;
 
     private void OnDisable()
     {
@@ -26,11 +27,22 @@ public class DialogueStarter : MonoBehaviour
         mainUI.SetActive(false);
         _playerInteraction.SetDialogueActive(true);
 
+        DialogueManager.instance.conversationEnded += OnConversationEnd;
         DialogueManager.StartConversation(conversationName);
     }
 
     private void OnConversationEnd(Transform _actor)
     {
+        DialogueManager.instance.conversationEnded -= OnConversationEnd;
+
+        if (!string.IsNullOrEmpty(flagToSetOnConversationEnd))
+        {
+            if (string.IsNullOrEmpty(requiredFlag) || _gameState.GetFlag(requiredFlag))
+            {
+                _gameState.SetFlag(flagToSetOnConversationEnd, true);
+            }
+        }
+
         mainUI.SetActive(true);
         _playerInteraction.SetDialogueActive(false);
     }
