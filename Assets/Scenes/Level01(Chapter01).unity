@@ -633,7 +633,6 @@ Transform:
   - {fileID: 453217408}
   - {fileID: 275384175}
   - {fileID: 1231625139}
-  - {fileID: 1611642088}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &198226546
@@ -790,7 +789,6 @@ Transform:
   - {fileID: 998776138}
   - {fileID: 302519889}
   - {fileID: 2640860849851060100}
-  - {fileID: 4160908756750542449}
   - {fileID: 979425920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2915,6 +2913,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4160908757204706075, guid: 716be89f01f12e74f9d610779102ced8, type: 3}
   m_PrefabInstance: {fileID: 998776137}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1022211133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022211134}
+  m_Layer: 0
+  m_Name: DialogueStarters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022211134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022211133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4160908756750542449}
+  - {fileID: 1611642088}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1057350613
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,11 +3101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e53b019008b2c24fafd54405947a8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutSceneOverlay
-  _camera: {fileID: 1315088176}
   artworkPrefabs:
   - {fileID: 7315545826219337188, guid: 9db8794422d3eb0418cfb2069a5f02c2, type: 3}
   - {fileID: 619622047387261765, guid: 578dc69f2341adb4a97b04b316952542, type: 3}
   - {fileID: 1123287257435908046, guid: 5613fd7bc2f742f469f51be7366de72a, type: 3}
+  _camera: {fileID: 1315088176}
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,7 +4686,7 @@ Transform:
   m_LocalScale: {x: 6.4997344, y: 3.5004323, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 165324685}
+  m_Father: {fileID: 1022211134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1611642090
 BoxCollider:
@@ -4704,6 +4735,7 @@ MonoBehaviour:
   requiredFlag: 
   _playerInteraction: {fileID: 1057350614}
   _gameState: {fileID: 1057350618}
+  _cutSceneOverlay: {fileID: 1057350620}
 --- !u!1 &1632819559
 GameObject:
   m_ObjectHideFlags: 0
@@ -5501,34 +5533,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5478595377860479784, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595950274732615910, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 70.726
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595950274732615910, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 83.9871
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7e449d9957fb7b8449c3bb07efc6339c, type: 3}
-    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966902907831244131, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7525513512896520841, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_Name
       value: Dialogue-UI
@@ -5536,10 +5540,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4107921672949227589, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2041136263}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
 --- !u!1 &1861073218 stripped
 GameObject:
@@ -6130,33 +6131,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030508274}
   m_CullTransparentMesh: 1
---- !u!1 &2041136259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4107921672949227589, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-  m_PrefabInstance: {fileID: 1861073217}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2041136263
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2041136259}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e4928662e1bc7cc4297caa629126e1e1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2066623918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6380,7 +6354,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 213247931}
+    m_TransformParent: {fileID: 1022211134}
     m_Modifications:
     - target: {fileID: 3427310696075957728, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6564,6 +6538,7 @@ MonoBehaviour:
   requiredFlag: HiddenLanguageDiscovered
   _playerInteraction: {fileID: 1057350614}
   _gameState: {fileID: 1057350618}
+  _cutSceneOverlay: {fileID: 1057350620}
 --- !u!1001 &4505891008149960671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6693,3 +6668,4 @@ SceneRoots:
   - {fileID: 165324685}
   - {fileID: 1846640702}
   - {fileID: 213247931}
+  - {fileID: 1022211134}

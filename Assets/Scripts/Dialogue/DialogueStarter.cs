@@ -12,6 +12,7 @@ public class DialogueStarter : MonoBehaviour
 
     [SerializeField] private PlayerInteraction _playerInteraction;
     [SerializeField] private GameState _gameState;
+    [SerializeField] private CutSceneOverlay _cutSceneOverlay;
 
     private void OnDisable()
     {
@@ -43,6 +44,7 @@ public class DialogueStarter : MonoBehaviour
             }
         }
 
+        _cutSceneOverlay.ClearArtwork();
         mainUI.SetActive(true);
         _playerInteraction.SetDialogueActive(false);
     }

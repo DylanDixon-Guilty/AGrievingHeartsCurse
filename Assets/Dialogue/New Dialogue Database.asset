@@ -1573,7 +1573,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'SendMessage(ShowArtwork, PillarScuffMark_CloseUp, GameManager);
+
+          SetDialoguePanel(false,
+          immediate);
+
+          SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -1962,7 +1967,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'SendMessage(ShowArtwork, PillarPressurePlate_CloseUp, GameManager);
+
+          SetDialoguePanel(false,
+          immediate);
+
+          SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2350,7 +2360,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'SendMessage(ShowArtwork, OpenedDoor_CloseUp, GameManager);
+
+          SetDialoguePanel(false,
+          immediate);
+
+          SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2749,8 +2764,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 53.333313, y: 0}
-    canvasZoom: 0.8500001
+    canvasScrollPosition: {x: 0, y: 1522.2501}
+    canvasZoom: 1
   syncInfo:
     syncActors: 0
     syncItems: 0

@@ -1,11 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// Handles spawning in CloseUps of artwork for dialogues
+/// </summary>
 public class CutSceneOverlay : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
-
     [Header("Artwork Prefabs")]
     [SerializeField] private GameObject[] artworkPrefabs;
+
+    [SerializeField] private Camera _camera;
 
     private GameObject currentArtwork; //The current artwork being displayed
 
