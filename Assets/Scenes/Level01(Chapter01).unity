@@ -2929,6 +2929,7 @@ GameObject:
   - component: {fileID: 1057350617}
   - component: {fileID: 1057350618}
   - component: {fileID: 1057350619}
+  - component: {fileID: 1057350620}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3057,6 +3058,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueGameState
   _gameState: {fileID: 1057350618}
+--- !u!114 &1057350620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057350613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e53b019008b2c24fafd54405947a8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutSceneOverlay
+  _camera: {fileID: 1315088176}
+  artworkPrefabs:
+  - {fileID: 7315545826219337188, guid: 9db8794422d3eb0418cfb2069a5f02c2, type: 3}
+  - {fileID: 619622047387261765, guid: 578dc69f2341adb4a97b04b316952542, type: 3}
+  - {fileID: 1123287257435908046, guid: 5613fd7bc2f742f469f51be7366de72a, type: 3}
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0
