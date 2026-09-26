@@ -413,7 +413,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'SendMessage(ShowArtwork, HiddenLanguage_CloseUp, GameManager);
+
+          SetDialoguePanel(false,
+          immediate);
+
+          SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1157,8 +1162,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 186.02156}
-    canvasZoom: 1.2399998
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.94000006
   - id: 2
     fields:
     - title: Title
@@ -2146,7 +2151,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: 'SendMessage(ShowArtwork, EthanClimbingPillar_CloseUp, GameManager);
+
+          SetDialoguePanel(false,
+          immediate);
+
+          SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2286,7 +2296,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 1646
+        y: 1646.629
         width: 160
         height: 30
     - id: 20
@@ -2550,8 +2560,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 34.09085, y: 1338.6356}
-    canvasZoom: 0.8800001
+    canvasScrollPosition: {x: 0, y: 1223.7964}
+    canvasZoom: 1.06
   - id: 3
     fields:
     - title: Title
