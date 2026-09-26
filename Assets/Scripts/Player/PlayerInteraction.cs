@@ -23,45 +23,89 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (isDialogueActive) //Check to see if a dialogue is active
+        if (isDialogueActive) //Checks to see if the player is in a dialogue
         {
             _mouseIconController.SetCursor(MouseIconType.Default);
             return;
         }
 
-        CheckHover();
+        Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        //Will detect if it hit a collider
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            CheckHover(hit);
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                CameraHotSpot hotspot = hit.collider.GetComponent<CameraHotSpot>();
-                Lootable lootable = hit.collider.GetComponent<Lootable>();
-                DialogueStarter dialogueStarter = hit.collider.GetComponent<DialogueStarter>();
-
-                if (hotspot != null)
-                {
-                    MoveCamera(hotspot.Node);
-                }
-
-                if (lootable != null)
-                {
-                    lootable.PickUp(_inventory);
-                }
-
-                if (dialogueStarter != null)
-                {
-                    dialogueStarter.StartDialogue();
-                    return;
-                }
+                HandleInteraction(hit);
             }
+        }
+        else
+        {
+            _mouseIconController.SetCursor(MouseIconType.Default);
         }
     }
 
     /// <summary>
-    /// Will move the camera based on where the mouse is clicking on
+    /// Checks what the player is hovering over and changes the mouse icon accordingly.
+    /// </summary>
+    private void CheckHover(RaycastHit _hit)
+    {
+        int layer = _hit.collider.gameObject.layer;
+
+        if (layer == LayerMask.NameToLayer("MoveForward"))
+        {
+            _mouseIconController.SetCursor(MouseIconType.GoForward);
+        }
+        else if (layer == LayerMask.NameToLayer("MoveRight"))
+        {
+            _mouseIconController.SetCursor(MouseIconType.GoRight);
+        }
+        else if (layer == LayerMask.NameToLayer("MoveLeft"))
+        {
+            _mouseIconController.SetCursor(MouseIconType.GoLeft);
+        }
+        else if (layer == LayerMask.NameToLayer("Lootable"))
+        {
+            _mouseIconController.SetCursor(MouseIconType.Grab);
+        }
+        else if (layer == LayerMask.NameToLayer("Inspect"))
+        {
+            _mouseIconController.SetCursor(MouseIconType.Inspect);
+        }
+        else
+        {
+            _mouseIconController.SetCursor(MouseIconType.Default);
+        }
+    }
+
+    /// <summary>
+    /// Handles the interaction when the player clicks on an object.
+    /// </summary>
+    private void HandleInteraction(RaycastHit _hit)
+    {
+        CameraHotSpot hotspot = _hit.collider.GetComponent<CameraHotSpot>();
+        Lootable lootable = _hit.collider.GetComponent<Lootable>();
+        DialogueStarter dialogueStarter = _hit.collider.GetComponent<DialogueStarter>();
+
+        if (hotspot != null)
+        {
+            MoveCamera(hotspot.Node);
+        }
+
+        if (lootable != null)
+        {
+            lootable.PickUp(_inventory);
+        }
+
+        if (dialogueStarter != null)
+        {
+            dialogueStarter.StartDialogue();
+        }
+    }
+
+    /// <summary>
+    /// Will move the camera based on where the mouse is clicking on.
     /// </summary>
     private void MoveCamera(Transform _node)
     {
@@ -72,10 +116,12 @@ public class PlayerInteraction : MonoBehaviour
 
         currentNode = _node;
         _camera.transform.position = _node.position;
+
+        CheckDialogueTrigger(_node); //Check if there's a dialogue trigger script on this node
     }
 
     /// <summary>
-    /// Will go back to the previous Node the player was on (If applicable)
+    /// Will go back to the previous Node the player was on, if applicable.
     /// </summary>
     public void GoBack()
     {
@@ -90,52 +136,23 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     /// <summary>
-    /// Will check what the player is hovering over and change the mouse icon accordingly
-    /// </summary>
-    private void CheckHover()
-    {
-        Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            int layer = hit.collider.gameObject.layer;
-
-            if (layer == LayerMask.NameToLayer("MoveForward"))
-            {
-                _mouseIconController.SetCursor(MouseIconType.GoForward);
-            }
-            else if (layer == LayerMask.NameToLayer("MoveRight"))
-            {
-                _mouseIconController.SetCursor(MouseIconType.GoRight);
-            }
-            else if (layer == LayerMask.NameToLayer("MoveLeft"))
-            {
-                _mouseIconController.SetCursor(MouseIconType.GoLeft);
-            }
-            else if (layer == LayerMask.NameToLayer("Lootable"))
-            {
-                _mouseIconController.SetCursor(MouseIconType.Grab);
-            }
-            else if (layer == LayerMask.NameToLayer("Inspect"))
-            {
-                _mouseIconController.SetCursor(MouseIconType.Inspect);
-            }
-            else
-            {
-                _mouseIconController.SetCursor(MouseIconType.Default);
-            }
-        }
-        else
-        {
-            _mouseIconController.SetCursor(MouseIconType.Default);
-        }
-    }
-
-    /// <summary>
-    /// Set the boolean to true or false
+    /// Sets whether dialogue is currently active.
     /// </summary>
     public void SetDialogueActive(bool active)
     {
         isDialogueActive = active;
+    }
+
+    /// <summary>
+    /// Checks to see if the node the player is on has a DialogueTrigger Script
+    /// </summary>
+    private void CheckDialogueTrigger(Transform _node)
+    {
+        DialogueTrigger dialogueTrigger = _node.GetComponent<DialogueTrigger>();
+
+        if (dialogueTrigger != null)
+        {
+            dialogueTrigger.TriggerDialogue();
+        }
     }
 }

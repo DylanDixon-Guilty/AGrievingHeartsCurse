@@ -1649,8 +1649,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581572945}
-  - component: {fileID: 581572947}
-  - component: {fileID: 581572946}
   m_Layer: 0
   m_Name: CameraNode_Temple_02
   m_TagString: Untagged
@@ -1673,40 +1671,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 576144400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &581572946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581572944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63a2a08acca736489ae38e6007eba88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
-  mainUI: {fileID: 1298393026}
-  conversationName: Cutscene_StoneDoor
-  flagToSetOnConversationEnd: Cutscene_StoneDoorDone
-  requiredFlag: 
-  _playerInteraction: {fileID: 1057350614}
-  _gameState: {fileID: 1057350618}
-  _cutSceneOverlay: {fileID: 1057350620}
-  _objectSpawner: {fileID: 0}
-  _dialogueTrigger: {fileID: 581572947}
---- !u!114 &581572947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581572944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccda35c89aaf45d438f64923ec0bcee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
-  _dialogueStarter: {fileID: 581572946}
 --- !u!1 &600551022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,7 +2788,6 @@ MonoBehaviour:
   _gameState: {fileID: 1057350618}
   _cutSceneOverlay: {fileID: 1057350620}
   _objectSpawner: {fileID: 0}
-  _dialogueTrigger: {fileID: 0}
 --- !u!65 &943900110
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3178,6 +3141,7 @@ GameObject:
   - component: {fileID: 1057350618}
   - component: {fileID: 1057350619}
   - component: {fileID: 1057350620}
+  - component: {fileID: 1057350621}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3323,6 +3287,27 @@ MonoBehaviour:
   - {fileID: 619622047387261765, guid: 578dc69f2341adb4a97b04b316952542, type: 3}
   - {fileID: 1123287257435908046, guid: 5613fd7bc2f742f469f51be7366de72a, type: 3}
   _camera: {fileID: 1315088176}
+--- !u!114 &1057350621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057350613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1172007c5c2ee304ea0825e6d4ea60c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
+  spawnEntries:
+  - objectToSpawn: {fileID: 1078135248819700342, guid: e4fbc5d5930e2c44497e46b8d1aa4a58, type: 3}
+    objectToDestroy: {fileID: 0}
+    spawnLocation: {fileID: 1519417116}
+    cameraNode: {fileID: 0}
+  - objectToSpawn: {fileID: 8591241451833831316, guid: 3e8e3b973d89c494faa77af1dc9fabee, type: 3}
+    objectToDestroy: {fileID: 943900106}
+    spawnLocation: {fileID: 608099823}
+    cameraNode: {fileID: 865014904}
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4985,7 +4970,6 @@ MonoBehaviour:
   _gameState: {fileID: 1057350618}
   _cutSceneOverlay: {fileID: 1057350620}
   _objectSpawner: {fileID: 0}
-  _dialogueTrigger: {fileID: 0}
 --- !u!1 &1632819559
 GameObject:
   m_ObjectHideFlags: 0
@@ -5503,11 +5487,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 576144400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1757065200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7210063637760297039, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
-  m_PrefabInstance: {fileID: 47274799023679577}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1833651015
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,7 +6645,7 @@ PrefabInstance:
     - target: {fileID: 8531497978553675670, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
       propertyPath: _objectSpawner
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1057350621}
     - target: {fileID: 8531497978553675670, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
       propertyPath: _cutSceneOverlay
       value: 
@@ -6678,10 +6657,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7210063637760297039, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4160908756750542453}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
 --- !u!1001 &2640860849851060099
 PrefabInstance:
@@ -6762,27 +6738,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3427310696075957728, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
   m_PrefabInstance: {fileID: 47274799023679577}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4160908756750542453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757065200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1172007c5c2ee304ea0825e6d4ea60c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
-  spawnEntries:
-  - objectToSpawn: {fileID: 1078135248819700342, guid: e4fbc5d5930e2c44497e46b8d1aa4a58, type: 3}
-    objectToDestroy: {fileID: 0}
-    spawnLocation: {fileID: 1519417116}
-    cameraNode: {fileID: 0}
-  - objectToSpawn: {fileID: 8591241451833831316, guid: 3e8e3b973d89c494faa77af1dc9fabee, type: 3}
-    objectToDestroy: {fileID: 943900106}
-    spawnLocation: {fileID: 608099823}
-    cameraNode: {fileID: 865014904}
 --- !u!1001 &4505891008149960671
 PrefabInstance:
   m_ObjectHideFlags: 0

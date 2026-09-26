@@ -14,6 +14,7 @@ public class DialogueStarter : MonoBehaviour
     [SerializeField] private GameState _gameState;
     [SerializeField] private CutSceneOverlay _cutSceneOverlay;
     [SerializeField] private ObjectSpawner _objectSpawner;
+    [SerializeField] private DialogueTrigger _dialogueTrigger;
 
     private void OnDisable()
     {
@@ -51,6 +52,11 @@ public class DialogueStarter : MonoBehaviour
         if (_objectSpawner != null && _progressionCompleted)
         {
             _objectSpawner.SpawnObject();
+        }
+        //If a dialogue was triggered by a DialogueTrigger, disable it
+        if (_dialogueTrigger != null)
+        {
+            _dialogueTrigger.DisableTrigger();
         }
 
         _cutSceneOverlay.ClearArtwork();
