@@ -6,7 +6,12 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class CameraHotSpot : MonoBehaviour
 {
-    [SerializeField] private Transform _node;
+    [SerializeField] private Transform node;
 
-    public Transform Node => _node;
+    public Transform Node => node;
+
+    public void SetNode(Transform _node)
+    {
+        node = _node;
+    }
 }

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6572268445050465566}
   - component: {fileID: 8459318572645277275}
   - component: {fileID: 3113367731259103823}
+  - component: {fileID: 5204257630245904961}
   m_Layer: 6
-  m_Name: OpenedDoor
+  m_Name: OpenedDoor_(Temple_02)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 8591241451833831316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4285674, y: 37.874397, z: -0.2}
-  m_LocalScale: {x: 1.2343, y: 1.2343, z: 1.2343}
+  m_LocalPosition: {x: -1.4285674, y: 37.874397, z: -0.3}
+  m_LocalScale: {x: 1.253804, y: 1.253804, z: 1.253804}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -105,3 +106,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraHotSpot
   _node: {fileID: 0}
+--- !u!65 &5204257630245904961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8591241451833831316}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.86, y: 12.75, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

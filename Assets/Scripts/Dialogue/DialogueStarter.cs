@@ -13,6 +13,7 @@ public class DialogueStarter : MonoBehaviour
     [SerializeField] private PlayerInteraction _playerInteraction;
     [SerializeField] private GameState _gameState;
     [SerializeField] private CutSceneOverlay _cutSceneOverlay;
+    [SerializeField] private ObjectSpawner _objectSpawner;
 
     private void OnDisable()
     {
@@ -35,13 +36,21 @@ public class DialogueStarter : MonoBehaviour
     private void OnConversationEnd(Transform _actor)
     {
         DialogueManager.instance.conversationEnded -= OnConversationEnd;
+        bool _progressionCompleted = false;
 
         if (!string.IsNullOrEmpty(flagToSetOnConversationEnd))
         {
             if (string.IsNullOrEmpty(requiredFlag) || _gameState.GetFlag(requiredFlag))
             {
                 _gameState.SetFlag(flagToSetOnConversationEnd, true);
+                _progressionCompleted = true;
             }
+        }
+
+        //If spawning in a new object after the dialogue has concluded
+        if (_objectSpawner != null && _progressionCompleted)
+        {
+            _objectSpawner.SpawnObject();
         }
 
         _cutSceneOverlay.ClearArtwork();
