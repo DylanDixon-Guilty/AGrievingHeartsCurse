@@ -8,13 +8,14 @@ public class DialogueStarter : MonoBehaviour
     [SerializeField] private string conversationName;
     [SerializeField] private PlayerInteraction _playerInteraction;
     [SerializeField] private GameState _gameState;
-    [SerializeField] private CutSceneOverlay _cutSceneOverlay;
 
     [Header("Optional")]
     [SerializeField] private string flagToSetOnConversationEnd;
     [SerializeField] private string requiredFlag;
     [SerializeField] private ObjectSpawner _objectSpawner;
     [SerializeField] private DialogueTrigger _dialogueTrigger;
+    [SerializeField] private CutSceneOverlay _cutSceneOverlay;
+
 
     private void OnDisable()
     {
