@@ -3,16 +3,16 @@ using PixelCrushers.DialogueSystem;
 
 public class DialogueStarter : MonoBehaviour
 {
+    [Header("Required to fill in")]
     [SerializeField] private GameObject mainUI;
     [SerializeField] private string conversationName;
-
-    [Header("Use flag if player has comepleted progression in story")]
-    [SerializeField] private string flagToSetOnConversationEnd;
-    [SerializeField] private string requiredFlag;
-
     [SerializeField] private PlayerInteraction _playerInteraction;
     [SerializeField] private GameState _gameState;
     [SerializeField] private CutSceneOverlay _cutSceneOverlay;
+
+    [Header("Optional")]
+    [SerializeField] private string flagToSetOnConversationEnd;
+    [SerializeField] private string requiredFlag;
     [SerializeField] private ObjectSpawner _objectSpawner;
     [SerializeField] private DialogueTrigger _dialogueTrigger;
 

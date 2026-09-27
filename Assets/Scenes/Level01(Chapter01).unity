@@ -119,6 +119,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &68818607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 68818608}
+  - component: {fileID: 68818609}
+  - component: {fileID: 68818610}
+  m_Layer: 5
+  m_Name: SkipFade-Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &68818608
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68818607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1983016778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &68818609
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68818607}
+  m_CullTransparentMesh: 1
+--- !u!114 &68818610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68818607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e1cd0d79a6457eb4bb0131ee35c592bd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &91004266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,11 +1762,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
   mainUI: {fileID: 1298393026}
   conversationName: Cutscene_StoneDoor
-  flagToSetOnConversationEnd: Cutscene_StoneDoorDone
-  requiredFlag: 
   _playerInteraction: {fileID: 1057350614}
   _gameState: {fileID: 1057350618}
   _cutSceneOverlay: {fileID: 1057350620}
+  flagToSetOnConversationEnd: Cutscene_StoneDoorDone
+  requiredFlag: 
   _objectSpawner: {fileID: 0}
   _dialogueTrigger: {fileID: 581572947}
 --- !u!114 &581572947
@@ -2818,11 +2893,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
   mainUI: {fileID: 1298393026}
   conversationName: StoneDoor
-  flagToSetOnConversationEnd: OpenedDoor
-  requiredFlag: PillarUnlocked
   _playerInteraction: {fileID: 1057350614}
   _gameState: {fileID: 1057350618}
   _cutSceneOverlay: {fileID: 1057350620}
+  flagToSetOnConversationEnd: OpenedDoor
+  requiredFlag: PillarUnlocked
   _objectSpawner: {fileID: 0}
   _dialogueTrigger: {fileID: 0}
 --- !u!65 &943900110
@@ -3325,6 +3400,9 @@ MonoBehaviour:
   - {fileID: 3604899701787094863, guid: 0eb8e6e2020127142a13c1f4fdb245f2, type: 3}
   - {fileID: 4362348106696486753, guid: 8758647a2ce3e0b4fb35a376135281c9, type: 3}
   _camera: {fileID: 1315088176}
+  skipFade: {fileID: 68818610}
+  fadeDuration: 2.8
+  _conversationControl: {fileID: 1861073221}
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,11 +5059,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
   mainUI: {fileID: 1298393026}
   conversationName: HiddenLanguage
-  flagToSetOnConversationEnd: HiddenLanguageDiscovered
-  requiredFlag: 
   _playerInteraction: {fileID: 1057350614}
   _gameState: {fileID: 1057350618}
   _cutSceneOverlay: {fileID: 1057350620}
+  flagToSetOnConversationEnd: HiddenLanguageDiscovered
+  requiredFlag: 
   _objectSpawner: {fileID: 0}
   _dialogueTrigger: {fileID: 0}
 --- !u!1 &1632819559
@@ -5700,6 +5778,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 22425850, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1861073219}
+    - targetCorrespondingSourceObject: {fileID: 22425850, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 68818608}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58ac37417e60e534f91138088a3e6f70, type: 3}
 --- !u!1001 &1861073217
@@ -5809,6 +5890,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2346628525147829515, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
   m_PrefabInstance: {fileID: 1861073217}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861073221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1933693778835262241, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+  m_PrefabInstance: {fileID: 1861073217}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861073218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64e51b1779bb93499ef905559fe62ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.ConversationControl
 --- !u!1 &1875830200
 GameObject:
   m_ObjectHideFlags: 0
@@ -6677,6 +6769,10 @@ PrefabInstance:
       propertyPath: _playerInteraction
       value: 
       objectReference: {fileID: 1057350614}
+    - target: {fileID: 8531497978553675670, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
+      propertyPath: _conversationControl
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

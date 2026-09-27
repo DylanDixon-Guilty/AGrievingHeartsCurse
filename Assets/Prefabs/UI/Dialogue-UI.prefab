@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 8815227234568090527}
   - component: {fileID: 5552981855595264692}
   - component: {fileID: 8620490942215765238}
-  - component: {fileID: 1403850686045823486}
   m_Layer: 5
   m_Name: Skip-Button
   m_TagString: Untagged
@@ -241,7 +240,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1403850686045823486}
+      - m_Target: {fileID: 1933693778835262241}
         m_TargetAssemblyTypeName: PixelCrushers.DialogueSystem.Wrappers.ConversationControl,
           Assembly-CSharp-firstpass
         m_MethodName: SkipAll
@@ -254,25 +253,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1403850686045823486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240939876517801207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64e51b1779bb93499ef905559fe62ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.ConversationControl
-  skipAll: 0
-  stopSkipAllOnUnreadSubtitle: 0
-  stopSkipAllOnResponseMenu: 1
-  stopSkipAllOnConversationEnd: 1
-  dontSkipAllOnLastConversationLine: 1
-  autoPlayOnContinueButton: 0
-  autoPlayOffContinueButton: 1
 --- !u!1 &1439425258563290848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,6 +2092,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2346628525147829515}
   - component: {fileID: 2210580198354312223}
+  - component: {fileID: 1933693778835262241}
   m_Layer: 5
   m_Name: Dialogue-UI
   m_TagString: Untagged
@@ -2180,6 +2161,25 @@ MonoBehaviour:
     QTEIndicators: []
   addEventSystemIfNeeded: 1
   verifyPanelAssignments: 1
+--- !u!114 &1933693778835262241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7525513512896520841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64e51b1779bb93499ef905559fe62ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp-firstpass::PixelCrushers.DialogueSystem.Wrappers.ConversationControl
+  skipAll: 0
+  stopSkipAllOnUnreadSubtitle: 0
+  stopSkipAllOnResponseMenu: 1
+  stopSkipAllOnConversationEnd: 1
+  dontSkipAllOnLastConversationLine: 1
+  autoPlayOnContinueButton: 0
+  autoPlayOffContinueButton: 1
 --- !u!1 &7591019117423726114
 GameObject:
   m_ObjectHideFlags: 0
