@@ -409,7 +409,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: With the wall now visible, Ethan makes out text written on the wall.
+        value: With the wall now visible, Ethan makes out text that are written on
+          it.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -969,8 +970,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Most of the text that has been filed away with heavy scratch marks
-          in the rock wall.
+        value: Most of the text has been filed away with heavy scratch marks in the
+          rock wall.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -1162,8 +1163,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 0, y: 199.25449}
+    canvasZoom: 1.1799997
   - id: 2
     fields:
     - title: Title
@@ -1275,7 +1276,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 184
+        x: 288
         y: 50
         width: 160
         height: 30
@@ -1331,8 +1332,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80.57971
-        y: 134.5797
+        x: 80
+        y: 134
         width: 160
         height: 30
     - id: 2
@@ -1530,7 +1531,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: We may be able to move it to see if there is something hidden.
+        value: We may be able to move it to see if there's something hidden.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -2296,7 +2297,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 1646.629
+        y: 1646
         width: 160
         height: 30
     - id: 20
@@ -2371,7 +2372,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Looks like ordinary pillar, holding up the roof.
+        value: Looks like an ordinary pillar, holding up the roof.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -2427,8 +2428,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Although this one has been skewed and is out of line from the other
-          pillars, strange.
+        value: Although this one is skewed and is out of line from the other pillars,
+          strange.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -2555,13 +2556,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 480.8116
-        y: 138.84059
+        x: 496
+        y: 134
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1383.2897}
-    canvasZoom: 0.8800001
+    canvasScrollPosition: {x: 0, y: 100.693634}
+    canvasZoom: 1.0899999
   - id: 3
     fields:
     - title: Title
@@ -2661,8 +2662,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 30
+        x: 80
+        y: 50
         width: 160
         height: 30
     - id: 1
@@ -2716,8 +2717,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 156
-        y: 102.66667
+        x: 80
+        y: 134
         width: 160
         height: 30
     - id: 2
@@ -2771,8 +2772,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 156
-        y: 153.33333
+        x: 80
+        y: 218
         width: 160
         height: 30
     - id: 3
@@ -2821,8 +2822,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 156
-        y: 203.33333
+        x: 80
+        y: 302
         width: 160
         height: 30
     entryGroups: []
@@ -3288,7 +3289,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Looks like we'll need to find to open this door.
+        value: Looks like we'll need to find a way to open this door.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3370,8 +3371,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 5.2760463}
-    canvasZoom: 0.9100001
+    canvasScrollPosition: {x: 0, y: 409.9389}
+    canvasZoom: 0.9399999
   - id: 5
     fields:
     - title: Title
@@ -3471,8 +3472,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 30
+        x: 80
+        y: 50
         width: 160
         height: 30
     - id: 1
@@ -3526,8 +3527,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 80
+        x: 80
+        y: 134
         width: 160
         height: 30
     - id: 2
@@ -3581,8 +3582,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 130
+        x: 80
+        y: 218
         width: 160
         height: 30
     - id: 3
@@ -3608,7 +3609,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: awww I love you~!
+        value: awww, I love you~!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -3630,8 +3631,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
-        y: 180
+        x: 84
+        y: 303.33334
         width: 160
         height: 30
     entryGroups: []
