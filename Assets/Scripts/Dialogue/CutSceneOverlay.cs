@@ -1,7 +1,7 @@
 using PixelCrushers.DialogueSystem;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 /// <summary>
 /// Handles spawning in CloseUps of artwork for dialogues
@@ -15,18 +15,18 @@ public class CutSceneOverlay : MonoBehaviour
     [SerializeField] private Image skipFade;
     [SerializeField] private float fadeDuration = 1f;
     [SerializeField] private ConversationControl _conversationControl;
-    
+
     private GameObject currentArtwork; //The current artwork being displayed
     private Coroutine fadeCoroutine;
-    private bool wasSkipping;
 
     /// <summary>
     /// When called, show the corresponding artwork for dialogue
     /// </summary>
     public void ShowArtwork(string _artworkName)
     {
-        if (_conversationControl.skipAll) 
+        if (_conversationControl.skipAll)
         {
+            ClearArtwork();
             StartSkipFade();
             return;
         }
@@ -66,6 +66,10 @@ public class CutSceneOverlay : MonoBehaviour
         fadeCoroutine = StartCoroutine(FadeToBlack());
     }
 
+    /// <summary>
+    /// When the player presses the skip button, show a fade in and out paper to cover background
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator FadeToBlack()
     {
         if (skipFade == null) yield break;

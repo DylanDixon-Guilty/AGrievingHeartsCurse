@@ -1,5 +1,5 @@
-using UnityEngine;
 using PixelCrushers.DialogueSystem;
+using UnityEngine;
 
 public class DialogueStarter : MonoBehaviour
 {

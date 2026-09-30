@@ -419,7 +419,12 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetDialoguePanel(true)@3;'
+          SetContinueMode(false);
+
+          required SetDialoguePanel(true)@3;
+
+          required
+          SetContinueMode(true)@4;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -443,7 +448,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
+        x: 80.6116
         y: 302
         width: 160
         height: 30
@@ -1163,8 +1168,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 199.25449}
-    canvasZoom: 1.1799997
+    canvasScrollPosition: {x: 0, y: 85.62692}
+    canvasZoom: 1.0899998
   - id: 2
     fields:
     - title: Title
@@ -1480,7 +1485,12 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetDialoguePanel(true)@3;'
+          SetContinueMode(false);
+
+          required SetDialoguePanel(true)@3;
+
+          required
+          SetContinueMode(true)@4;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -1874,7 +1884,12 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetDialoguePanel(true)@3;'
+          SetContinueMode(false);
+
+          required SetDialoguePanel(true)@3;
+
+          required
+          SetContinueMode(true)@4;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2157,7 +2172,12 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetDialoguePanel(true)@3.5;'
+          SetContinueMode(false);
+
+          required SetDialoguePanel(true)@3.2;
+
+          required
+          SetContinueMode(true)@4;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2182,7 +2202,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 1478
+        y: 1478.6873
         width: 160
         height: 30
     - id: 18
@@ -2272,7 +2292,12 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetDialoguePanel(true)@3;'
+          SetContinueMode(false);
+
+          required SetDialoguePanel(true)@3;
+
+          required
+          SetContinueMode(true)@4;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2297,7 +2322,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 1646
+        y: 1646.7576
         width: 160
         height: 30
     - id: 20
@@ -2561,8 +2586,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 100.693634}
-    canvasZoom: 1.0899999
+    canvasScrollPosition: {x: 0, y: 1253.6373}
+    canvasZoom: 0.97
   - id: 3
     fields:
     - title: Title
@@ -3371,8 +3396,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 409.9389}
-    canvasZoom: 0.9399999
+    canvasScrollPosition: {x: 0, y: 406.1403}
+    canvasZoom: 0.76000005
   - id: 5
     fields:
     - title: Title
