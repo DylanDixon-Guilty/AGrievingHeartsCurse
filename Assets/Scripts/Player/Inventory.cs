@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Button[] hotbarSlots;
     [SerializeField] private TMP_Text[] hotbarItemNames;
     [SerializeField] private MouseIconController _mouseIconController;
+    [SerializeField] private CombinationData[] _combinationRecipes;
     [SerializeField] private Color selectedItemColor = Color.gray; //When an item is selected, the hot-bar will darken it out
 
     private bool isBackPackOpen;

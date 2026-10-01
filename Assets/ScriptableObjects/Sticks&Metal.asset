@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3d51c3c5374534290aeefec54ae269, type: 3}
+  m_Name: Sticks&Metal
+  m_EditorClassIdentifier: Assembly-CSharp::ItemsData
+  ItemName: Bundle of sticks & metal
+  ItemSprite: {fileID: 21300000, guid: 8ffa8124a44fef04e977fca97a5b53e0, type: 3}
+  HeldItemSprite: {fileID: 0}
+  isCutSceneItem: 1
