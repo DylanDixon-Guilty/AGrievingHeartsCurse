@@ -3589,6 +3589,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 94c05e49e099fc8499769b9b2e494f43, type: 2}
   combineButtonPrefab: {fileID: 5561763542203106156, guid: 3c4e4346600602647aa7bfe485029aeb, type: 3}
   combineButtonLocalPosition: {x: 0, y: 160.4416, z: 0}
+  alertDisplayTime: 4
 --- !u!114 &1057350618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6108,10 +6109,6 @@ PrefabInstance:
     - target: {fileID: 7525513512896520841, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
       propertyPath: m_Name
       value: Dialogue-UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342051033577387532, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

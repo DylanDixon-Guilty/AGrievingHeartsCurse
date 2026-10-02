@@ -1,8 +1,9 @@
+using PixelCrushers.DialogueSystem;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using System.Collections.Generic;
 
 /// <summary>
 /// Handles the player's inventory, item selection, and item combinations
@@ -29,6 +30,8 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject combineButtonPrefab;
     [SerializeField] private Vector3 combineButtonLocalPosition = new Vector3(0f, 60f, 0f);
 
+    [SerializeField] private int alertDisplayTime = 3; // For displaying the alert message in EnterCombineMode
+
     private bool isBackPackOpen;
     private bool isCombineMode;
 
@@ -37,6 +40,7 @@ public class Inventory : MonoBehaviour
 
     private GameObject combineButton;
     private List<int> combinationSlots = new List<int>();
+    private int combineSlotIndex = -1;
 
     private void Start()
     {
@@ -168,6 +172,12 @@ public class Inventory : MonoBehaviour
 
         HideCombineButton();
 
+        if (_items[_slotIndex].isCutSceneItem)
+        {
+            DialogueManager.ShowAlert("I should talk to Zoe about our next step.", alertDisplayTime);
+            return;
+        }
+
         if (_selectedItem == _items[_slotIndex])
         {
             _selectedItem = null;
@@ -218,13 +228,9 @@ public class Inventory : MonoBehaviour
             combineButton = Instantiate(combineButtonPrefab);
         }
 
-        combineButton.transform.SetParent(
-            hotbarSlots[_slotIndex].transform,
-            false
-        );
-
+        combineSlotIndex = _slotIndex;
+        combineButton.transform.SetParent(hotbarSlots[_slotIndex].transform, false);
         combineButton.transform.localPosition = combineButtonLocalPosition;
-
         combineButton.SetActive(true);
 
         Button button = combineButton.GetComponent<Button>();
@@ -237,6 +243,59 @@ public class Inventory : MonoBehaviour
 
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(EnterCombineMode);
+    }
+
+    /// <summary>
+    /// Find the corresponding recipe for combining items based on the Item selected in the Item Slot
+    /// </summary>
+    private CombinationData FindCombinationRecipe(ItemsData _item)
+    {
+        foreach (CombinationData _recipe in _combinationRecipes)
+        {
+            if (_recipe == null || _recipe.requiredItems == null)
+            {
+                continue;
+            }
+
+            foreach (ItemsData requiredItem in _recipe.requiredItems)
+            {
+                if (requiredItem == _item)
+                {
+                    return _recipe;
+                }
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// This checks what items the player already has in their inventory
+    /// </summary>
+    private List<ItemsData> GetMissingCombinationItems(CombinationData _recipe)
+    {
+        List<ItemsData> missingItems = new List<ItemsData>();
+
+        foreach (ItemsData requiredItem in _recipe.requiredItems)
+        {
+            bool hasItem = false;
+
+            for (int i = 0; i < _items.Length; i++)
+            {
+                if (_items[i] == requiredItem)
+                {
+                    hasItem = true;
+                    break;
+                }
+            }
+
+            if (!hasItem)
+            {
+                missingItems.Add(requiredItem);
+            }
+        }
+
+        return missingItems;
     }
 
     /// <summary>
@@ -257,7 +316,62 @@ public class Inventory : MonoBehaviour
     {
         HideCombineButton();
 
-        // Clear normal item selection
+        if (combineSlotIndex < 0 || combineSlotIndex >= _items.Length)
+        {
+            Debug.LogWarning("Could not find the item selected for combining.");
+            return;
+        }
+
+        ItemsData selectedCombinationItem = _items[combineSlotIndex];
+
+        CombinationData recipe = FindCombinationRecipe(selectedCombinationItem);
+
+        if (recipe == null)
+        {
+            Debug.Log("This item cannot be combined with anything.");
+            return;
+        }
+
+        List<ItemsData> missingItems = GetMissingCombinationItems(recipe);
+
+        if (missingItems.Count > 0)
+        {
+            string alertMessage = "I need ";
+
+            for (int i = 0; i < missingItems.Count; i++)
+            {
+                alertMessage += missingItems[i].ItemName;
+
+                if (i < missingItems.Count - 2)
+                {
+                    alertMessage += ", ";
+                }
+                else if (i == missingItems.Count - 2)
+                {
+                    alertMessage += " and ";
+                }
+            }
+
+            alertMessage += " to complete this combination. \n Close Back Pack to cancel combination.";
+
+            DialogueManager.ShowAlert(alertMessage, alertDisplayTime);
+
+            if (missingItems.Count == recipe.requiredItems.Length - 1)
+            {
+                return;
+            }
+        }
+        else
+        {
+            int otherItemsNeeded = recipe.requiredItems.Length - 1;
+
+            string alertMessage = otherItemsNeeded == 1
+                ? "Combine this item with 1 other item."
+                : $"Combine this item with {otherItemsNeeded} other items. \n Close Back Pack to cancel combination.";
+
+            DialogueManager.ShowAlert(alertMessage, alertDisplayTime);
+        }
+
         if (_selectedItem != null)
         {
             for (int i = 0; i < _items.Length; i++)
@@ -274,8 +388,14 @@ public class Inventory : MonoBehaviour
         }
 
         combinationSlots.Clear();
+
+        // The item used to enter Combine Mode is the first selected item.
+        combinationSlots.Add(combineSlotIndex);
+        hotbarSlots[combineSlotIndex].image.color = selectedItemColor;
+
         isCombineMode = true;
 
+        Debug.Log($"Added {selectedCombinationItem.ItemName} to the combination.");
         Debug.Log("Entered Combine Mode.");
     }
 
@@ -313,6 +433,8 @@ public class Inventory : MonoBehaviour
     /// </summary>
     private void CheckCombination()
     {
+        bool recipeWasChecked = false;
+
         foreach (CombinationData _recipe in _combinationRecipes)
         {
             if (_recipe == null)
@@ -324,6 +446,8 @@ public class Inventory : MonoBehaviour
             {
                 continue;
             }
+
+            recipeWasChecked = true;
 
             List<ItemsData> remainingRequiredItems =
                 new List<ItemsData>(_recipe.requiredItems);
@@ -352,7 +476,10 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        Debug.Log("The selected items do not form a combination.");
+        if (recipeWasChecked)
+        {
+            Debug.Log("The selected items do not form a combination.");
+        }
     }
 
     /// <summary>
