@@ -23,12 +23,6 @@ public class DialogueStarter : MonoBehaviour
 
     }
 
-    private void Start() // TEMPORARY. Remember to remove later
-    {
-        DialogueManager.instance.conversationEnded += OnConversationEnd;
-        DialogueManager.StartConversation(conversationName);
-    }
-
     /// <summary>
     /// Makes a specific conversation begin based on the of 'conversationName'
     /// </summary>
