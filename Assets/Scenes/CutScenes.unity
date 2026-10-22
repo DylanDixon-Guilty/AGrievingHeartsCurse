@@ -862,6 +862,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -80.21875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 181.2875
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 68.890625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 108.45625
+      objectReference: {fileID: 0}
     - target: {fileID: 7366720854964084709, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
       propertyPath: m_Name
       value: CutSceneDialogue-UI
