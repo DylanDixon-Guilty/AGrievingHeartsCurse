@@ -63,7 +63,7 @@ public class CutSceneController : MonoBehaviour
         {
             if (cutSceneOverlay == null)
             {
-                Debug.LogError("CutSceneOverlay is not assigned.",this);
+                Debug.LogError("CutSceneOverlay is not assigned.", this);
                 return;
             }
 
@@ -72,28 +72,41 @@ public class CutSceneController : MonoBehaviour
 
         // Position both speech bubble variants.
         // Pixel Crushers still determines which panel displays the current dialogue entry.
-        PositionBubble(normalSpeechBubble, shot);
-        PositionBubble(reversedSpeechBubble, shot);
+        switch (shot.displayMode)
+        {
+            case CutsceneDisplayMode.NormalSpeechBubble:
+                PositionBubble(normalSpeechBubble, shot.screenX, shot.screenY);
+                break;
+
+            case CutsceneDisplayMode.ReversedSpeechBubble:
+                PositionBubble(reversedSpeechBubble, shot.reversedScreenX, shot.reversedScreenY);
+                break;
+
+            case CutsceneDisplayMode.Narration:
+                // Narration stays anchored at the bottom.
+                break;
+        }
     }
 
-    /// <summary>
-    /// The position the Speech Bubble will sit
-    /// </summary>
-    private void PositionBubble(RectTransform bubble, CutSceneShot shot)
-    {
-        if (bubble == null)
+        /// <summary>
+        /// The position the Speech Bubble will sit
+        /// </summary>
+        private void PositionBubble(RectTransform bubble, float screenX, float screenY)
         {
-            return;
+            if (bubble == null)
+            {
+                return;
+            }
+
+            Vector2 position = new Vector2(screenX, screenY);
+
+            bubble.anchorMin = position;
+            bubble.anchorMax = position;
+            bubble.anchoredPosition = Vector2.zero;
         }
 
-        Vector2 position = new Vector2(shot.screenX,shot.screenY);
-        bubble.anchorMin = position;
-        bubble.anchorMax = position;
-        bubble.anchoredPosition = Vector2.zero;
-    }
-
-    public void StartConversation()
-    {
+        public void StartConversation()
+        {
         if (string.IsNullOrWhiteSpace(testConversationName))
         {
             Debug.LogWarning("Enter a conversation name in CutsceneController.", this);
@@ -101,7 +114,7 @@ public class CutSceneController : MonoBehaviour
         }
 
         DialogueManager.StartConversation(testConversationName);
-    }
+        }
 
     [ContextMenu("Testing/Start Test Conversation")]
     private void StartTestConversation()

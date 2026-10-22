@@ -204,6 +204,8 @@ MonoBehaviour:
   shots:
   - {fileID: 11400000, guid: d8bd92faca3eb7d43b987d3f15f9793f, type: 2}
   - {fileID: 11400000, guid: 43c5994b101bf8445a1ef0085aeca0e0, type: 2}
+  - {fileID: 11400000, guid: c9b44e54b3080284cb22973c6d06b9c5, type: 2}
+  - {fileID: 11400000, guid: 586c1a45a0c74f243ae7a76628ea0ee7, type: 2}
   normalSpeechBubble: {fileID: 2487540543608842065}
   reversedSpeechBubble: {fileID: 2487540543608842066}
   testConversationName: MaleGolemRoomScene
@@ -859,14 +861,6 @@ PrefabInstance:
     - target: {fileID: 3370030664005830759, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 28.78125
-      objectReference: {fileID: 0}
-    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 17.8125
       objectReference: {fileID: 0}
     - target: {fileID: 7366720854964084709, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
       propertyPath: m_Name

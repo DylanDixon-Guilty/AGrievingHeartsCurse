@@ -15,8 +15,7 @@ public class CutSceneShotEditor : Editor
         DrawDefaultInspector();
 
         EditorGUILayout.Space(12);
-        EditorGUILayout.LabelField("Bubble Position Helper",EditorStyles.boldLabel
-        );
+        EditorGUILayout.LabelField("Bubble Position Helper",EditorStyles.boldLabel);
 
         bubbleToCapture = (RectTransform)EditorGUILayout.ObjectField("Bubble to Capture", bubbleToCapture, typeof(RectTransform), true);
 
@@ -47,9 +46,7 @@ public class CutSceneShotEditor : Editor
         Canvas rootCanvas = canvas.rootCanvas;
 
         Vector3 worldPosition = bubbleToCapture.position;
-
         Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(rootCanvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : rootCanvas.worldCamera, worldPosition);
-
         Rect canvasRect = rootCanvas.pixelRect;
 
         if (canvasRect.width <= 0 || canvasRect.height <= 0)

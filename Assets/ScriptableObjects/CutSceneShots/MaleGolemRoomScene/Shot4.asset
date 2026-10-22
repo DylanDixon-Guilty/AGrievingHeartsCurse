@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5654870963bed9a46bf6dfb1c64ecb74, type: 3}
-  m_Name: Scene1
-  m_EditorClassIdentifier: Assembly-CSharp::CutsceneShot
-  shotID: MaleGolemRoomShot1
-  artworkName: GolemRoom_Scene1
-  displayMode: 2
-  screenX: 0.62
-  screenY: 0.62
+  m_Name: Shot4
+  m_EditorClassIdentifier: Assembly-CSharp::CutSceneShot
+  shotID: MaleGolemRoomShot4
+  artworkName: 
+  displayMode: 1
+  screenX: 0.39206773
+  screenY: 0.5952334
+  reversedScreenX: 0.3920677
+  reversedScreenY: 0.5952333
