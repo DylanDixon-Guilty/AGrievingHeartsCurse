@@ -3795,7 +3795,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot1,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -3850,7 +3850,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot2,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6

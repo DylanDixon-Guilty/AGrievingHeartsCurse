@@ -139,7 +139,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 883936545}
-  - component: {fileID: 883936546}
+  - component: {fileID: 883936547}
+  - component: {fileID: 883936548}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -162,7 +163,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &883936546
+--- !u!114 &883936547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,18 +172,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 883936544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c63a2a08acca736489ae38e6007eba88, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e53b019008b2c24fafd54405947a8e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
-  mainUI: {fileID: 0}
-  conversationName: MaleGolemRoomScene
-  _playerInteraction: {fileID: 0}
-  _gameState: {fileID: 0}
-  flagToSetOnConversationEnd: 
-  requiredFlag: 
-  _objectSpawner: {fileID: 0}
-  _dialogueTrigger: {fileID: 0}
-  _cutSceneOverlay: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::CutSceneOverlay
+  artworkPrefabs:
+  - {fileID: 644089760426045054, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
+  - {fileID: 8604510206720020003, guid: aacd317efaa054446b49e4f248193c2a, type: 3}
+  - {fileID: 7113778923988738897, guid: a831b6b1353914a41bfadac350b09667, type: 3}
+  - {fileID: 5643267891555452273, guid: e4ce944858f5f3c4792af1fcfe390e38, type: 3}
+  - {fileID: 3199549563114244059, guid: c3bb649ea8ffc6744ad2e951fd24dfe9, type: 3}
+  - {fileID: 2085746835705818852, guid: f5e66a02608f58f479e581921e3ac815, type: 3}
+  - {fileID: 5126862518325487100, guid: 2e2d02bb316e4c840b6e29367fb196e7, type: 3}
+  - {fileID: 7727371317365437266, guid: d5f8645e7ad57f140ad12d9c372d00aa, type: 3}
+  _camera: {fileID: 1565203931}
+  skipFade: {fileID: 0}
+  fadeDuration: 1
+  _conversationControl: {fileID: 0}
+--- !u!114 &883936548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883936544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef4be37e86fa4442811f293e2cfd7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutSceneController
+  cutSceneOverlay: {fileID: 883936547}
+  shots:
+  - {fileID: 11400000, guid: d8bd92faca3eb7d43b987d3f15f9793f, type: 2}
+  - {fileID: 11400000, guid: 43c5994b101bf8445a1ef0085aeca0e0, type: 2}
+  normalSpeechBubble: {fileID: 2487540543608842065}
+  reversedSpeechBubble: {fileID: 2487540543608842066}
+  testConversationName: MaleGolemRoomScene
 --- !u!1 &1008580579
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +371,7 @@ Transform:
   m_GameObject: {fileID: 1322336977}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -739,63 +763,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1001 &2122688706
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 644089760426045054, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_Name
-      value: GolemRoom_Scene1_WithCharacters
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932900793108186791, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 43e146d8c29ad484c92f89d2dd1e519e, type: 3}
 --- !u!224 &762678400446567072 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3370030664005830759, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
@@ -809,6 +776,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1725909179}
     m_Modifications:
+    - target: {fileID: 1472365582038825481, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3370030664005830759, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -889,15 +860,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 28.78125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.8125
+      objectReference: {fileID: 0}
     - target: {fileID: 7366720854964084709, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
       propertyPath: m_Name
       value: CutSceneDialogue-UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669469716178475521, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+--- !u!224 &2487540543608842065 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+  m_PrefabInstance: {fileID: 2487540543608842064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2487540543608842066 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4192512226418443076, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
+  m_PrefabInstance: {fileID: 2487540543608842064}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4785790832925885730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7366720854964084709, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
@@ -913,4 +906,3 @@ SceneRoots:
   - {fileID: 1725909178}
   - {fileID: 1008580582}
   - {fileID: 1322336979}
-  - {fileID: 2122688706}

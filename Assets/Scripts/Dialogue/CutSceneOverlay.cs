@@ -24,7 +24,7 @@ public class CutSceneOverlay : MonoBehaviour
     /// </summary>
     public void ShowArtwork(string _artworkName)
     {
-        if (_conversationControl.skipAll)
+        if (_conversationControl != null && _conversationControl.skipAll)
         {
             ClearArtwork();
             StartSkipFade();
