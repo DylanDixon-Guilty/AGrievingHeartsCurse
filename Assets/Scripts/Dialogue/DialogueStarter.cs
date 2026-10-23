@@ -24,7 +24,7 @@ public class DialogueStarter : MonoBehaviour
     }
 
     /// <summary>
-    /// Makes a specific conversation begin based on the of 'conversationName'
+    /// Makes a specific conversation begin based on the 'conversationName'
     /// </summary>
     public void StartDialogue()
     {
