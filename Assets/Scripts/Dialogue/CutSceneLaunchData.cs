@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class CutSceneLaunchData : MonoBehaviour
+public static class CutsceneLaunchData
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private static string conversationName;
+
+    public static void SetConversation(string name)
     {
-        
+        conversationName = name;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static string ConsumeConversation()
     {
-        
+        string result = conversationName;
+        conversationName = null;
+        return result;
     }
 }

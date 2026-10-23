@@ -105,7 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb3f572ca15a4b49b986abf2f8243fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraHotSpot
-  _node: {fileID: 0}
+  cutSceneName: MaleGolemRoomScene
+  node: {fileID: 0}
 --- !u!65 &5204257630245904961
 BoxCollider:
   m_ObjectHideFlags: 0

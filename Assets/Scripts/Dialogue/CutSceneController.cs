@@ -2,8 +2,14 @@ using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 
+/// <summary>
+/// Handles loading the converasation the Main Gameplay Scenes loaded
+/// </summary>
 public class CutSceneController : MonoBehaviour
 {
+    [Header("Conversation Launch")]
+    [SerializeField] private bool startConversationOnSceneLoad = true;
+
     [Header("Existing Cutscene System")]
     [SerializeField] private CutSceneOverlay cutSceneOverlay;
 
@@ -22,6 +28,41 @@ public class CutSceneController : MonoBehaviour
     private void Awake()
     {
         BuildShotLookup();
+    }
+
+    /// <summary>
+    /// At the start, see if a conversation has been passed, if so, start the conversation and load the proper shots(artwork).
+    /// </summary>
+    private void Start()
+    {
+        if (!startConversationOnSceneLoad) //If testing in Scene, skip this.
+        {
+            return;
+        }
+
+        string conversationName = CutsceneLaunchData.ConsumeConversation();
+
+        // Allow the existing Inspector test field to serve as a fallback when entering the scene directly.
+        if (string.IsNullOrWhiteSpace(conversationName))
+        {
+            conversationName = testConversationName;
+        }
+
+        if (string.IsNullOrWhiteSpace(conversationName))
+        {
+            Debug.LogWarning("CutsceneController: No conversation name was provided.", this);
+            return;
+        }
+
+        StartCoroutine(StartConversationNextFrame(conversationName));
+    }
+
+    private System.Collections.IEnumerator StartConversationNextFrame(string _conversationName)
+    {
+        // Allow the newly loaded scene to initialize first.
+        yield return null;
+
+        DialogueManager.StartConversation(_conversationName);
     }
 
     private void BuildShotLookup()
