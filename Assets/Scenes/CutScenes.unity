@@ -206,6 +206,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 43c5994b101bf8445a1ef0085aeca0e0, type: 2}
   - {fileID: 11400000, guid: c9b44e54b3080284cb22973c6d06b9c5, type: 2}
   - {fileID: 11400000, guid: 586c1a45a0c74f243ae7a76628ea0ee7, type: 2}
+  - {fileID: 11400000, guid: 980b249b61da05444b6dfd5a3edd0656, type: 2}
+  - {fileID: 11400000, guid: 690c64b53f7e34944aecd084448c71ad, type: 2}
+  - {fileID: 11400000, guid: ffb3a3fd0a5af5d499e0c2b00e41db7a, type: 2}
+  - {fileID: 11400000, guid: 945627319cb2ef14588ccfea5892aae8, type: 2}
+  - {fileID: 11400000, guid: ba5553f3be7d8bd47ac03728ee365118, type: 2}
+  - {fileID: 11400000, guid: 2c7f096e1333dca40ad2a9eb4f93f8f5, type: 2}
+  - {fileID: 11400000, guid: 9a8a7aa793865044fa7afa3b86ff781a, type: 2}
   normalSpeechBubble: {fileID: 2487540543608842065}
   reversedSpeechBubble: {fileID: 2487540543608842066}
   testConversationName: MaleGolemRoomScene
@@ -778,10 +785,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1725909179}
     m_Modifications:
-    - target: {fileID: 1472365582038825481, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3370030664005830759, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -862,29 +865,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -80.21875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 181.2875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 68.890625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3998126587227915625, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 108.45625
-      objectReference: {fileID: 0}
     - target: {fileID: 7366720854964084709, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
       propertyPath: m_Name
       value: CutSceneDialogue-UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 7669469716178475521, guid: bbff260f67729dc47b45fe7a3e03ef29, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

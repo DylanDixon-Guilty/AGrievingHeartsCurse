@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Shot7
   m_EditorClassIdentifier: Assembly-CSharp::CutSceneShot
   shotID: MaleGolemRoomShot7
-  artworkName: 
-  displayMode: 0
+  artworkName: GolemRoom_Scene5
+  displayMode: 2
   screenX: 0.5717611
   screenY: 0.68076044
   reversedScreenX: 0.5

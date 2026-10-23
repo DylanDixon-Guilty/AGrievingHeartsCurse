@@ -3957,7 +3957,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '[panel=0] She kneels down to one of the caskets.'
+        value: She kneels down to one of the caskets.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4072,7 +4072,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot5,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4097,7 +4097,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 554.7092
+        y: 554.0976
         width: 160
         height: 30
     - id: 7
@@ -4123,11 +4123,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Seems like they got into here as well.
+        value: '[panel=1] Seems like they got into here as well.'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot6,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4152,7 +4152,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 638
+        y: 638.61163
         width: 160
         height: 30
     - id: 8
@@ -4178,8 +4178,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: What do you think would scare off these people where they leave all
-          their stuff?
+        value: '[panel=1] What do you think would scare off these people where they
+          leave all their stuff?'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -4239,7 +4239,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot7,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4294,7 +4294,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot8,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4401,11 +4401,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: What is that thing!
+        value: '[panel=2] What is that thing!'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot9,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4456,11 +4456,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Zoe! Get to the entrance!
+        value: '[panel=2] Zoe! Get to the entrance!'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot10,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4516,7 +4516,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager)'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4539,8 +4539,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 126.72705}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 0, y: 848.1594}
+    canvasZoom: 1.0899999
   syncInfo:
     syncActors: 0
     syncItems: 0
