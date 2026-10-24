@@ -18,7 +18,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Awake()
     {
-        _camera.transform.position = defaultPosition.transform.position;
+        if (defaultPosition != null) _camera.transform.position = defaultPosition.transform.position;
+
     }
 
     private void Update()
@@ -90,6 +91,14 @@ public class PlayerInteraction : MonoBehaviour
 
         if (hotspot != null)
         {
+            // A named cutscene takes priority over normal camera movement.
+            if (!string.IsNullOrWhiteSpace(hotspot.cutSceneName))
+            {
+                hotspot.StartCutScene(hotspot.cutSceneName);
+                return;
+            }
+
+            // Blank cutscene name: behave like a normal camera hotspot.
             MoveCamera(hotspot.Node);
         }
 

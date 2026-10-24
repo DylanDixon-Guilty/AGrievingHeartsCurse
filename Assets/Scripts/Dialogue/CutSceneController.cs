@@ -23,6 +23,9 @@ public class CutSceneController : MonoBehaviour
     [Tooltip("Put name of conversation for testing a conversation outside of the Gameplay Scene")]
     [SerializeField] private string testConversationName;
 
+    [Header("CutScene UI")]
+    [SerializeField] private GameObject cutSceneDialogueUIPrefab;
+
     private Dictionary<string, CutSceneShot> shotsByID;
 
     private void Awake()
@@ -59,9 +62,41 @@ public class CutSceneController : MonoBehaviour
 
     private System.Collections.IEnumerator StartConversationNextFrame(string _conversationName)
     {
-        // Allow the newly loaded scene to initialize first.
+        // Wait for the CutScenes scene to initialize.
         yield return null;
 
+        if (DialogueManager.instance == null)
+        {
+            Debug.LogError("CutSceneController: No persistent Dialogue Manager found.", this);
+            yield break;
+        }
+
+        if (cutSceneDialogueUIPrefab == null)
+        {
+            Debug.LogError("CutSceneController: CutScenes Dialogue UI prefab is not assigned.", this);
+            yield break;
+        }
+
+        // Find the Canvas belonging to the persistent Dialogue Manager.
+        Canvas managerCanvas = DialogueManager.instance.GetComponentInChildren<Canvas>(true);
+
+        if (managerCanvas == null)
+        {
+            Debug.LogError("CutSceneController: No Canvas found under the persistent Dialogue Manager.", this);
+            yield break;
+        }
+
+        // Create the CutScenes UI under the persistent manager's Canvas.
+        GameObject cutSceneUI = Instantiate(cutSceneDialogueUIPrefab, managerCanvas.transform, false);
+
+        // Switch Pixel Crushers to the newly instantiated UI.
+        DialogueManager.UseDialogueUI(cutSceneUI);
+        if (!FindSpeechBubbles(cutSceneUI))
+        {
+            yield break;
+        }
+
+        // Start the conversation only after assigning the UI.
         DialogueManager.StartConversation(_conversationName);
     }
 
@@ -111,6 +146,7 @@ public class CutSceneController : MonoBehaviour
             cutSceneOverlay.ShowArtwork(shot.artworkName);
         }
 
+
         // Position both speech bubble variants.
         // Pixel Crushers still determines which panel displays the current dialogue entry.
         switch (shot.displayMode)
@@ -156,6 +192,23 @@ public class CutSceneController : MonoBehaviour
 
         DialogueManager.StartConversation(testConversationName);
         }
+
+    private bool FindSpeechBubbles(GameObject _dialogueUI)
+    {
+        Transform normalPanel = _dialogueUI.transform.Find("Dialogue-Panel/SpeechBubbleNormal-Panel/SpeechBubble");
+        Transform reversedPanel = _dialogueUI.transform.Find("Dialogue-Panel/SpeechBubbleReversed-Panel/SpeechBubble");
+
+        if (normalPanel == null || reversedPanel == null)
+        {
+            Debug.LogError("CutSceneController: Could not find one or both SpeechBubble objects. " + "Check the CutSceneDialogue-UI prefab hierarchy.", this);
+            return false;
+        }
+
+        normalSpeechBubble = normalPanel.GetComponent<RectTransform>();
+        reversedSpeechBubble = reversedPanel.GetComponent<RectTransform>();
+
+        return normalSpeechBubble != null && reversedSpeechBubble != null;
+    }
 
     [ContextMenu("Testing/Start Test Conversation")]
     private void StartTestConversation()
