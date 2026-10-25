@@ -261,7 +261,7 @@ MonoBehaviour:
   maxLines: 100
   delayTypewriterUntilOpen: 0
   continueButton: {fileID: 2866049264840794475}
-  blockInputDuration: 0
+  blockInputDuration: 0.5
   visibility: 0
   focusAnimationTrigger: 
   unfocusAnimationTrigger: 
@@ -649,7 +649,7 @@ MonoBehaviour:
   maxLines: 100
   delayTypewriterUntilOpen: 0
   continueButton: {fileID: 2866049264840794475}
-  blockInputDuration: 0
+  blockInputDuration: 0.5
   visibility: 0
   focusAnimationTrigger: 
   unfocusAnimationTrigger: 
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   maxLines: 100
   delayTypewriterUntilOpen: 0
   continueButton: {fileID: 2866049264840794475}
-  blockInputDuration: 0
+  blockInputDuration: 0.5
   visibility: 0
   focusAnimationTrigger: 
   unfocusAnimationTrigger: 

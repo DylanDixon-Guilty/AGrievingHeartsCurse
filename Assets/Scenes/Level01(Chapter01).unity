@@ -3408,6 +3408,7 @@ GameObject:
   - component: {fileID: 1057350618}
   - component: {fileID: 1057350619}
   - component: {fileID: 1057350620}
+  - component: {fileID: 1057350621}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3561,6 +3562,25 @@ MonoBehaviour:
   - {fileID: 3604899701787094863, guid: 0eb8e6e2020127142a13c1f4fdb245f2, type: 3}
   - {fileID: 4362348106696486753, guid: 8758647a2ce3e0b4fb35a376135281c9, type: 3}
   _camera: {fileID: 1315088176}
+--- !u!114 &1057350621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057350613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef4be37e86fa4442811f293e2cfd7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CutSceneController
+  startConversationOnSceneLoad: 0
+  cutSceneOverlay: {fileID: 1057350620}
+  shots: []
+  normalSpeechBubble: {fileID: 0}
+  reversedSpeechBubble: {fileID: 0}
+  testConversationName: 
+  dialogueUIPrefab: {fileID: 7525513512896520841, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0

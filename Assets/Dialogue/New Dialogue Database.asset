@@ -4516,7 +4516,62 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager)'
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);'
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 14
+        destinationConversationID: 6
+        destinationDialogueID: 15
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 80
+        y: 1226
+        width: 160
+        height: 30
+    - id: 15
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: SendMessage(LoadScene,Level01(Chapter01),GameManager)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4535,12 +4590,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 1226
+        y: 1310
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.0899999
+    canvasScrollPosition: {x: 0, y: 1028.2659}
+    canvasZoom: 1.2999997
   syncInfo:
     syncActors: 0
     syncItems: 0

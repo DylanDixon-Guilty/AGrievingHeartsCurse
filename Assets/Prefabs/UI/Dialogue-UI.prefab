@@ -95,7 +95,7 @@ MonoBehaviour:
   addSpeakerNameFormat: '{0}: {1}'
   accumulateText: 0
   maxLines: 100
-  delayTypewriterUntilOpen: 0
+  delayTypewriterUntilOpen: 1
   continueButton: {fileID: 1250334120210966327}
   blockInputDuration: 0.6
   visibility: 3
@@ -104,7 +104,7 @@ MonoBehaviour:
   onlyShowNPCPortraits: 0
   useAnimatedPortraits: 0
   usePortraitNativeSize: 0
-  waitForOpen: 0
+  waitForOpen: 1
   waitForClose: 0
   clearTextOnClose: 1
   clearTextOnConversationStart: 0
