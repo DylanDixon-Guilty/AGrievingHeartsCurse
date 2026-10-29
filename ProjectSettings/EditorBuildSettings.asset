@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScenes.unity
     guid: 71c169ba5d06a6240a88b059ac115ace
   - enabled: 1
+    path: Assets/Scenes/Ethan'sHouse.unity
+    guid: 3124583d484c8f44194eff04d26aac79
+  - enabled: 1
     path: Assets/Scenes/Level01(Chapter01).unity
     guid: 158f7015f37e97a43a51b32d3184dc3b
   m_configObjects:
