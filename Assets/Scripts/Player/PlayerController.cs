@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float gravity = -9f;
+    [SerializeField] private float jumpHeight = 2f;
 
     [Header("Camera")]
     [SerializeField] private Transform playerCamera;
@@ -69,9 +70,15 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = -2f;
         }
 
-        verticalVelocity += gravity * Time.deltaTime;
-        _movement.y = verticalVelocity;
+        if (characterController.isGrounded && Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
 
+        // Apply gravity continuously throughout the jump.
+        verticalVelocity += gravity * Time.deltaTime;
+
+        _movement.y = verticalVelocity;
         characterController.Move(_movement * moveSpeed * Time.deltaTime);
     }
 
