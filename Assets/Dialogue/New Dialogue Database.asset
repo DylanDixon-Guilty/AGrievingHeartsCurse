@@ -1168,7 +1168,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 85.62692}
+    canvasScrollPosition: {x: 0, y: 1135.78}
     canvasZoom: 1.0899998
   - id: 2
     fields:
@@ -4516,7 +4516,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);'
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);
+
+          SendMessage(UnlockFlag,RealWorldTravelUnlocked,GameSession(SavedData));'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4594,8 +4596,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1028.2659}
-    canvasZoom: 1.2999997
+    canvasScrollPosition: {x: 0, y: 980.2199}
+    canvasZoom: 0.9100001
   syncInfo:
     syncActors: 0
     syncItems: 0

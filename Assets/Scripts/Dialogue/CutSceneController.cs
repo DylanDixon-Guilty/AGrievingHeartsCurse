@@ -248,8 +248,9 @@ public class CutSceneController : MonoBehaviour
     /// </summary>
     private void LoadScene(string _sceneName)
     {
-        DialogueManager.StopConversation();
 
+
+        DialogueManager.StopConversation();
         SceneManager.LoadScene(_sceneName);
     }
 }

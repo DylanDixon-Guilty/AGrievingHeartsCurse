@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Setting flags that change certain dialogue and sequence in dialogue
+/// </summary>
 public class GameState : MonoBehaviour
 {
     private Dictionary<string, bool> flags = new Dictionary<string, bool>();
