@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        string _returnScene = GameSession.Instance.ScrapbookReturnScene;
+        string _returnScene = GameSession.Instance.ReturnScene;
 
         if (string.IsNullOrWhiteSpace(_returnScene))
         {

@@ -11,6 +11,10 @@ public class BookToRealWorldTravel : MonoBehaviour
     [SerializeField] private float tabHoldDuration = 1f;
     [SerializeField] private string travelUnlockFlag = "RealWorldTravelUnlocked";
 
+    [SerializeField] private bool bypassTravelUnlock = true;
+    [SerializeField] private PlayerInteraction _playerInteraction;
+    [SerializeField] private Inventory _inventory;
+
     private float tabHoldTimer;
     private bool travelRequestHandled;
 
@@ -53,16 +57,27 @@ public class BookToRealWorldTravel : MonoBehaviour
             return;
         }
 
-        if (!GameSession.Instance.GetFlag(travelUnlockFlag))
+        if (!bypassTravelUnlock && !GameSession.Instance.GetFlag(travelUnlockFlag))
         {
             Debug.Log("Real-world travel is still locked.");
             return;
         }
 
-        string _currentScene = SceneManager.GetActiveScene().name;
+        if (_playerInteraction == null)
+        {
+            Debug.LogWarning(
+                "ScrapbookTravelController: PlayerInteraction is not assigned."
+            );
+            return;
+        }
 
-        GameSession.Instance.SetScrapbookReturnScene(_currentScene);
-        Debug.Log($"Saved scrapbook return scene: {_currentScene}");
+        _playerInteraction.SaveNavigationState();
+
+        if (GameSession.Instance.ReturnScene != SceneManager.GetActiveScene().name)
+        {
+            Debug.LogWarning("ScrapbookTravelController: Navigation state was not saved correctly.");
+            return;
+        }
 
         SceneManager.LoadScene("Ethan'sHouse");
     }
@@ -72,5 +87,4 @@ public class BookToRealWorldTravel : MonoBehaviour
         tabHoldTimer = 0f;
         travelRequestHandled = false;
     }
-
 }

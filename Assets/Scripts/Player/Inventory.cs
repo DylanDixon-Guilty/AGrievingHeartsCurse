@@ -86,6 +86,7 @@ public class Inventory : MonoBehaviour
             trigger.triggers.Add(pointerClick);
         }
 
+        RestoreInventoryState();
         RefreshInventoryUI();
     }
 
@@ -131,25 +132,33 @@ public class Inventory : MonoBehaviour
     }
 
     /// <summary>
-    /// Add the corresponding item to player's inventory
+    /// Adds the corresponding item to the player's inventory. Returns true if successful, or false if the inventory is full
     /// </summary>
-    public void AddItem(ItemsData item)
+    public bool AddItem(ItemsData _item)
     {
+        if (_item == null)
+        {
+            Debug.LogWarning("Inventory: Cannot add a null item.");
+            return false;
+        }
+
         for (int i = 0; i < _items.Length; i++)
         {
             if (_items[i] == null)
             {
-                _items[i] = item;
+                _items[i] = _item;
 
                 RefreshInventoryUI();
 
-                Debug.Log($"Added {item.ItemName} to inventory slot {i + 1}.");
+                Debug.Log($"Added {_item.ItemName} to inventory slot {i + 1}.");
 
-                return;
+                return true;
             }
         }
 
         Debug.LogWarning("Inventory is full. Could not add item.");
+        return false;
+
     }
 
     /// <summary>
@@ -599,5 +608,68 @@ public class Inventory : MonoBehaviour
     public void HideItemName(int _slotIndex)
     {
         hotbarItemNames[_slotIndex].gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Saves the current inventory contents to GameSession Script
+    /// </summary>
+    public void SaveInventoryState()
+    {
+        if (GameSession.Instance == null)
+        {
+            Debug.LogWarning("Inventory: GameSession was not found. Cannot save inventory.");
+            return;
+        }
+
+        GameSession.Instance.SaveInventory(_items);
+
+        Debug.Log("Inventory contents saved.");
+
+    }
+
+    /// <summary>
+    /// Restores the saved inventory contents from GameSession like when returning from Ethan'sHouse
+    /// </summary>
+    public void RestoreInventoryState()
+    {
+        if (GameSession.Instance == null)
+        {
+            Debug.LogWarning("Inventory: GameSession was not found. Cannot restore inventory.");
+            return;
+        }
+
+        if (!GameSession.Instance.HasSavedInventory())
+        {
+            Debug.Log("No saved inventory exists yet. Keeping the current inventory.");
+            return;
+        }
+
+        ItemsData[] savedItems = GameSession.Instance.LoadInventory();
+
+        if (savedItems == null || savedItems.Length != _items.Length)
+        {
+            Debug.LogWarning("Inventory: Saved inventory size does not match the current inventory.");
+            return;
+        }
+
+        System.Array.Copy(savedItems, _items, _items.Length);
+
+        // Clear temporary selection and combination state.
+        _selectedItem = null;
+        combinationSlots.Clear();
+        isCombineMode = false;
+        combineSlotIndex = -1;
+
+        if (combineButton != null)
+        {
+            combineButton.SetActive(false);
+        }
+
+        _mouseIconController.ClearHeldItem();
+
+        RefreshInventoryUI();
+
+        Debug.Log("Inventory contents restored.");
+
     }
 }

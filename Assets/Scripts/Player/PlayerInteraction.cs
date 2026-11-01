@@ -18,8 +18,22 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Awake()
     {
-        if (defaultPosition != null) _camera.transform.position = defaultPosition.transform.position;
+        if (_camera == null)
+        {
+            Debug.LogWarning("PlayerInteraction: Camera is not assigned.");
+            return;
+        }
 
+        if (RestoreNavigationState())
+        {
+            return;
+        }
+
+        if (defaultPosition != null)
+        {
+            currentNode = defaultPosition;
+            _camera.transform.position = defaultPosition.position;
+        }
     }
 
     private void Update()
@@ -163,5 +177,100 @@ public class PlayerInteraction : MonoBehaviour
         {
             dialogueTrigger.TriggerDialogue();
         }
+    }
+
+    /// <summary>
+    /// Saves the current scrapbook scene, camera node, and navigation history
+    /// </summary>
+    public void SaveNavigationState()
+    {
+        if (GameSession.Instance == null)
+        {
+            Debug.LogWarning("PlayerInteraction: GameSession was not found.");
+            return;
+        }
+
+        Transform nodeToSave = currentNode != null ? currentNode : defaultPosition;
+
+        if (nodeToSave == null)
+        {
+            Debug.LogWarning("PlayerInteraction: No camera node is available to save.");
+            return;
+        }
+
+        List<string> nodeNames = new List<string>();
+
+        foreach (Transform node in _nodeHistory)
+        {
+            if (node != null)
+            {
+                nodeNames.Add(node.name);
+            }
+        }
+
+        string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        GameSession.Instance.SetNavigationState(currentScene, nodeToSave.name, nodeNames);
+        Debug.Log($"Saved scrapbook navigation: Scene = {currentScene}, " + $"Node = {nodeToSave.name}, History Count = {nodeNames.Count}");
+    }
+
+    /// <summary>
+    /// Restores the saved scrapbook camera node and navigation history
+    /// </summary>
+    private bool RestoreNavigationState()
+    {
+        if (GameSession.Instance == null)
+        {
+            return false;
+        }
+
+        if (GameSession.Instance.ReturnScene != UnityEngine.SceneManagement.SceneManager.GetActiveScene().name)
+        {
+            return false;
+        }
+
+        string savedNodeName = GameSession.Instance.ReturnNode;
+
+        if (string.IsNullOrWhiteSpace(savedNodeName))
+        {
+            return false;
+        }
+
+        GameObject savedNodeObject = GameObject.Find(savedNodeName);
+
+        if (savedNodeObject == null)
+        {
+            Debug.LogWarning($"PlayerInteraction: Could not find saved camera node '{savedNodeName}'.");
+            return false;
+        }
+
+        currentNode = savedNodeObject.transform;
+        _camera.transform.position = currentNode.position;
+
+        _nodeHistory.Clear();
+
+        List<string> savedNodeNames =
+            GameSession.Instance.ReturnNodeHistory;
+
+        // Stack enumerates from top to bottom, so push in reverse order
+        for (int i = savedNodeNames.Count - 1; i >= 0; i--)
+        {
+            GameObject nodeObject = GameObject.Find(savedNodeNames[i]);
+
+            if (nodeObject != null)
+            {
+                _nodeHistory.Push(nodeObject.transform);
+            }
+            else
+            {
+                Debug.LogWarning($"PlayerInteraction: Could not restore history node '{savedNodeNames[i]}'.");
+            }
+        }
+
+        Debug.Log($"Restored scrapbook navigation: Node = {savedNodeName}, " + $"History Count = {_nodeHistory.Count}");
+
+        GameSession.Instance.ClearSessionData();
+
+        return true;
     }
 }
