@@ -3466,6 +3466,7 @@ GameObject:
   - component: {fileID: 1057350619}
   - component: {fileID: 1057350620}
   - component: {fileID: 1057350621}
+  - component: {fileID: 1057350622}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3638,6 +3639,20 @@ MonoBehaviour:
   reversedSpeechBubble: {fileID: 0}
   testConversationName: 
   dialogueUIPrefab: {fileID: 7525513512896520841, guid: e6209d1fc73e022458e9112cc187b28e, type: 3}
+--- !u!114 &1057350622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057350613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af915ae80b81154ca17ad9c2d7f9995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BookToRealWorldTravel
+  tabHoldDuration: 1
+  travelUnlockFlag: RealWorldTravelUnlocked
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Will handle the player movement in the real world (Ethan's House)
+/// Will also return the player to the current level they were in when clicking on the scrapbook
 /// </summary>
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -13,9 +15,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 2f;
 
     [Header("Camera")]
-    [SerializeField] private Transform playerCamera;
     public float mouseSensitivity = 2f;
+    [SerializeField] private Transform playerCamera;
     [SerializeField] private float maxLookAngle = 80f;
+
+    [Header("Scrapbook Interaction")]
+    [SerializeField] private Camera interactionCamera;
+    [SerializeField] private LayerMask scrapbookLayer;
 
     private CharacterController characterController;
     private float verticalVelocity;
@@ -37,6 +43,7 @@ public class PlayerController : MonoBehaviour
         LookAround();
         MovePlayer();
         HandleCursor();
+        ScrapbookInteraction();
     }
 
     /// <summary>
@@ -134,5 +141,49 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+
+    /// <summary>
+    /// Handles when the player clicks on the scrapbook, send them to the scene they came from
+    /// </summary>
+    private void ScrapbookInteraction()
+    {
+        if (Mouse.current == null || interactionCamera == null)
+        {
+            return;
+        }
+
+        if (!Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            return;
+        }
+
+        Ray ray = interactionCamera.ScreenPointToRay(
+            Mouse.current.position.ReadValue()
+        );
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, scrapbookLayer))
+        {
+            ReturnToScrapbook();
+        }
+    }
+
+    private void ReturnToScrapbook()
+    {
+        if (GameSession.Instance == null)
+        {
+            Debug.LogWarning("PlayerController: GameSession was not found.");
+            return;
+        }
+
+        string _returnScene = GameSession.Instance.ScrapbookReturnScene;
+
+        if (string.IsNullOrWhiteSpace(_returnScene))
+        {
+            Debug.LogWarning("PlayerController: No scrapbook return scene has been saved.");
+            return;
+        }
+
+        SceneManager.LoadScene(_returnScene);
     }
 }

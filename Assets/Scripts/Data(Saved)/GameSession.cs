@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     public static GameSession Instance { get; private set; }
-    public string ScrapbookReturnScene { get; private set; }
+    public string ScrapbookReturnScene { get; private set; } //What Scene the player came from when going to Ethan'sHouse
 
     private Dictionary<string, bool> flags = new Dictionary<string, bool>();
 
