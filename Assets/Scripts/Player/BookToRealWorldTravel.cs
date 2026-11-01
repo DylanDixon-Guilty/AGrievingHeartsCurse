@@ -20,7 +20,7 @@ public class BookToRealWorldTravel : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current == null)
+        if (_playerInteraction != null && _playerInteraction.IsDialogueActive)
         {
             ResetTabHold();
             return;
@@ -47,7 +47,7 @@ public class BookToRealWorldTravel : MonoBehaviour
     }
 
     /// <summary>
-    /// Checks to see if the player has unlocked Travel. If so, let player go to real world
+    /// Checks to see if the player has unlocked Travel. If so, let player go to the real world
     /// </summary>
     private void CheckTravelUnlock()
     {
@@ -65,9 +65,7 @@ public class BookToRealWorldTravel : MonoBehaviour
 
         if (_playerInteraction == null)
         {
-            Debug.LogWarning(
-                "ScrapbookTravelController: PlayerInteraction is not assigned."
-            );
+            Debug.LogWarning("ScrapbookTravelController: PlayerInteraction is not assigned.");
             return;
         }
 
@@ -78,6 +76,14 @@ public class BookToRealWorldTravel : MonoBehaviour
             Debug.LogWarning("ScrapbookTravelController: Navigation state was not saved correctly.");
             return;
         }
+
+        if (_inventory == null)
+        {
+            Debug.LogWarning("BookToRealWorldTravel: Inventory is not assigned.");
+            return;
+        }
+
+        _inventory.SaveInventoryState(); //Saves the inventory of the player before leaving the scene
 
         SceneManager.LoadScene("Ethan'sHouse");
     }

@@ -1485,12 +1485,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -1884,12 +1879,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2172,12 +2162,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3.2;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3.2;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2292,12 +2277,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2586,7 +2566,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1253.6373}
+    canvasScrollPosition: {x: 0, y: 39.20392}
     canvasZoom: 0.97
   - id: 3
     fields:

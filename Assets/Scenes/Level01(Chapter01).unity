@@ -3655,6 +3655,7 @@ MonoBehaviour:
   travelUnlockFlag: RealWorldTravelUnlocked
   bypassTravelUnlock: 1
   _playerInteraction: {fileID: 1057350614}
+  _inventory: {fileID: 1057350617}
 --- !u!1 &1072955145
 GameObject:
   m_ObjectHideFlags: 0

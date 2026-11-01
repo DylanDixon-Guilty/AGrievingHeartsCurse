@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
+    public bool IsDialogueActive => isDialogueActive;
+
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform defaultPosition;
     [SerializeField] private Transform currentNode;

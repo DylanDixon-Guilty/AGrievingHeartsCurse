@@ -36,27 +36,30 @@ public class GameSession : MonoBehaviour
     /// </summary>
     public bool GetFlag(string _flagName)
     {
-        if (flags.TryGetValue(_flagName, out bool _value))
+        if (GameSession.Instance == null)
         {
-            return _value;
+            Debug.LogWarning("GameState: GameSession was not found.");
+            return false;
         }
 
-        return false;
+        return GameSession.Instance.GetFlag(_flagName);
     }
 
-    /// <summary>
-    /// Sets or updates a progression flag
-    /// </summary>
     public void SetFlag(string _flagName, bool _value)
     {
-        if (string.IsNullOrWhiteSpace(_flagName))
+        if (GameSession.Instance == null)
         {
-            Debug.LogWarning("GameSession: Cannot set a flag with an empty name.");
+            Debug.LogWarning("GameState: GameSession was not found.");
             return;
         }
 
-        flags[_flagName] = _value;
-        Debug.Log($"{_flagName} had been set to {_value}");
+        GameSession.Instance.SetFlag(_flagName, _value);
+    }
+
+    public Dictionary<string, bool> GetAllFlags()
+    {
+        // GameSession currently exposes individual flags rather than its full dictionary. Return an empty dictionary until bulk flag access is needed.
+        return new Dictionary<string, bool>();
     }
 
     /// <summary>
@@ -89,8 +92,10 @@ public class GameSession : MonoBehaviour
         flags.Clear();
         ReturnNodeHistory.Clear();
         collectedLootableIDs.Clear();
+        savedInventory = null;
         ReturnScene = null;
         ReturnNode = null;
+        hasSavedInventory = false;
     }
 
     /// <summary>
