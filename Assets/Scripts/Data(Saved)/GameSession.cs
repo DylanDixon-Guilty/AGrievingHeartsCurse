@@ -32,41 +32,52 @@ public class GameSession : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns the value of a progression flag. Flags that have not been set return false
+    /// Returns the value of a progression flag. Flags that have not been set (blank) return false
     /// </summary>
     public bool GetFlag(string _flagName)
     {
-        if (GameSession.Instance == null)
+        if (string.IsNullOrWhiteSpace(_flagName))
         {
-            Debug.LogWarning("GameState: GameSession was not found.");
+            Debug.LogWarning("GameSession: Cannot get a flag with an empty name.");
             return false;
         }
 
-        return GameSession.Instance.GetFlag(_flagName);
+        if (flags.TryGetValue(_flagName, out bool _value))
+        {
+            return _value;
+        }
+
+        return false;
+
     }
 
+    /// <summary>
+    /// Sets or updates a progression flag
+    /// </summary>
     public void SetFlag(string _flagName, bool _value)
     {
-        if (GameSession.Instance == null)
+        if (string.IsNullOrWhiteSpace(_flagName))
         {
-            Debug.LogWarning("GameState: GameSession was not found.");
+            Debug.LogWarning("GameSession: Cannot set a flag with an empty name.");
             return;
         }
 
-        GameSession.Instance.SetFlag(_flagName, _value);
+        flags[_flagName] = _value;
+
+        Debug.Log($"GameSession: Flag '{_flagName}' set to {_value}.");
+
     }
 
+    /// <summary>
+    /// Returns a copy of all progression flags
+    /// </summary>
     public Dictionary<string, bool> GetAllFlags()
     {
-        // GameSession currently exposes individual flags rather than its full dictionary. Return an empty dictionary until bulk flag access is needed.
-        return new Dictionary<string, bool>();
+        return new Dictionary<string, bool>(flags);
     }
 
     /// <summary>
-    /// Returns the player to the previous scene once clicking on the Book (in Ethan'sHouse)
-    /// </summary>
-    /// <summary>
-    /// Saves the complete scrapbook navigation state.
+    /// Saves the complete scrapbook navigation state
     /// </summary>
     public void SetNavigationState(string _sceneName, string _nodeName, List<string> _nodeHistory)
     {

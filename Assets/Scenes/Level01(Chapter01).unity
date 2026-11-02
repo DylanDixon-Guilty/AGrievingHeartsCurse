@@ -7123,6 +7123,8 @@ MonoBehaviour:
     objectToDestroy: {fileID: 943900106}
     spawnLocation: {fileID: 608099823}
     cameraNode: {fileID: 865014904}
+  restoreOnSceneLoad: 1
+  restorationFlag: PillarUnlocked
 --- !u!1001 &4505891008149960671
 PrefabInstance:
   m_ObjectHideFlags: 0
