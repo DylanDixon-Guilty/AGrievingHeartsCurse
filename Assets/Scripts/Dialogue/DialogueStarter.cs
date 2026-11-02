@@ -35,6 +35,9 @@ public class DialogueStarter : MonoBehaviour
         DialogueManager.StartConversation(conversationName);
     }
 
+    /// <summary>
+    /// What information to set when the conversation is over
+    /// </summary>
     private void OnConversationEnd(Transform _actor)
     {
         DialogueManager.instance.conversationEnded -= OnConversationEnd;
