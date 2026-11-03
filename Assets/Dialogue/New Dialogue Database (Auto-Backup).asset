@@ -264,6 +264,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 18
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1167,8 +1173,57 @@ MonoBehaviour:
         y: 1394
         width: 160
         height: 30
+    - id: 18
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: I still can't make it out. Just something about up.
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 273.16467
+        y: 133.45097
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 85.62692}
+    canvasScrollPosition: {x: 3.19878, y: 0}
     canvasZoom: 1.0899998
   - id: 2
     fields:
@@ -1485,12 +1540,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -1884,12 +1934,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2172,12 +2217,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3.2;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3.2;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2292,12 +2332,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 2
@@ -2586,8 +2621,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1253.6373}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.8200002
   - id: 3
     fields:
     - title: Title
@@ -2743,7 +2778,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 134
+        y: 134.66667
         width: 160
         height: 30
     - id: 2
@@ -3396,7 +3431,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 7.8947754}
+    canvasScrollPosition: {x: 0, y: 236.8421}
     canvasZoom: 0.76000005
   - id: 5
     fields:
@@ -4516,7 +4551,64 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager)'
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);
+
+          SendMessage(UnlockFlag,RealWorldTravelUnlocked,GameSession(SavedData));'
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 14
+        destinationConversationID: 6
+        destinationDialogueID: 15
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 80
+        y: 1226
+        width: 160
+        height: 30
+    - id: 15
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: SendMessage(LoadScene,Level01(Chapter01),GameManager)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -4535,12 +4627,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 1226
+        y: 1310
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1.0899999
+    canvasScrollPosition: {x: 0, y: 980.2199}
+    canvasZoom: 0.9100001
   syncInfo:
     syncActors: 0
     syncItems: 0

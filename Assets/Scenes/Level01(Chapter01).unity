@@ -3049,8 +3049,8 @@ MonoBehaviour:
   conversationName: StoneDoor
   _playerInteraction: {fileID: 1057350614}
   _gameState: {fileID: 1057350618}
-  flagToSetOnConversationEnd: OpenedDoor
-  requiredFlag: PillarUnlocked
+  flagToSetOnConversationEnd: 
+  requiredFlag: 
   _objectSpawner: {fileID: 0}
   _dialogueTrigger: {fileID: 0}
   _cutSceneOverlay: {fileID: 1057350620}
