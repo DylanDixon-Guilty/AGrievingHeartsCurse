@@ -1845,6 +1845,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   _dialogueStarter: {fileID: 581572946}
+  conversationStartOnTrigger: 1
+  triggerOnce: 1
+  completionFlag: CameraNodeTemple02_Done
 --- !u!1 &600551022
 GameObject:
   m_ObjectHideFlags: 0

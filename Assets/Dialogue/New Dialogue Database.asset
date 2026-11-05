@@ -325,7 +325,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: CheckGameStateFlag("HiddenLanguage_Done") == false
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1163,7 +1163,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: SetGameStateFlag("HiddenLanguage_Done") == true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1211,7 +1211,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: CheckGameStateFlag("HiddenLanguage_Done") == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -1223,8 +1223,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.90999997
+    canvasScrollPosition: {x: 0, y: 1159.423}
+    canvasZoom: 1.0299999
   - id: 2
     fields:
     - title: Title
@@ -1385,7 +1385,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CheckGameStateFlag("HiddenLanguageDiscovered") == true and
-        Variable["Interacted_With"] == false;
+        CheckGameStateFlag("Pillar_Done") == false;
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2399,7 +2399,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: Variable["Interacted_With"] = true
+      userScript: SetGameStateFlag("Pillar_Done", true)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2454,7 +2454,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CheckGameStateFlag("HiddenLanguageDiscovered") == false and
-        Variable["Interacted_With"] == false;
+        CheckGameStateFlag("Pillar_Done") == false;
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2609,7 +2609,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: Variable["Interacted_With"] == true
+      conditionsString: CheckGameStateFlag("Pillar_Done") == true
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2621,8 +2621,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 1.2944946, y: 0}
+    canvasZoom: 1.03
   - id: 3
     fields:
     - title: Title
