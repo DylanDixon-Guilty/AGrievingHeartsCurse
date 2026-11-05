@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Will handle the basic functions of the menus
+/// Will handle the basic functions of the menus. Like Options or Main Menu
 /// </summary>
 public class MenuFunctions : MonoBehaviour
 {
