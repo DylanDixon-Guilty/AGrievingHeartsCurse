@@ -14,10 +14,11 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Transform currentNode;
     [SerializeField] private MouseIconController _mouseIconController;
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private MenuFunctions _menuFunctions;
+
 
     private Stack<Transform> _nodeHistory = new Stack<Transform>();
     private bool isDialogueActive;
-
     private void Awake()
     {
         if (_camera == null)
@@ -40,7 +41,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (isDialogueActive) //Checks to see if the player is in a dialogue
+        if (isDialogueActive || _menuFunctions.isPaused) //Checks to see if the player is in a dialogue
         {
             _mouseIconController.SetCursor(MouseIconType.Default);
             return;
