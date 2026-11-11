@@ -9,12 +9,15 @@ public class GameSession : MonoBehaviour
     public static GameSession Instance { get; private set; }
 
     [Header("Information To Save")]
-    public string ReturnNode { get; private set; } //What Node the player came from when going to Ethan'sHouse
-    public List<string> ReturnNodeHistory { get; private set; } = new List<string>(); //Stores the Node history before the player went to Ethan'sHouse
-    public string ReturnScene { get; private set; } //What Scene the player came from when going to Ethan'sHouse
-    private Dictionary<string, bool> flags = new Dictionary<string, bool>(); //What Flag needs to be saved (such as unlocking Ethan'sHouse)
-    private HashSet<string> collectedLootableIDs = new HashSet<string>(); //Storing items ID to know what items to restore/delete
-    private ItemsData[] savedInventory = new ItemsData[12]; //Keeping track what the player has in their inventory before moving onto Ethan'sHouse
+    public string ReturnNode { get; private set; } // What Node the player came from when going to Ethan'sHouse
+    public List<string> ReturnNodeHistory { get; private set; } = new List<string>(); // Stores the Node history before the player went to Ethan'sHouse
+    public string ReturnScene { get; private set; } // What Scene the player came from when going to Ethan'sHouse
+
+    private Dictionary<string, bool> flags = new Dictionary<string, bool>(); // What Flag needs to be saved (such as unlocking Ethan'sHouse)
+    private HashSet<string> collectedLootableIDs = new HashSet<string>(); // Storing items ID to know what items to restore/delete
+    private HashSet<string> collectedReferenceIDs = new HashSet<string>(); // This stores the items collected in Ethan'sHouse
+    private Dictionary<string, ItemsData> pendingDrawings = new Dictionary<string, ItemsData>();
+    private ItemsData[] savedInventory = new ItemsData[12]; // Keeping track what the player has in their inventory before moving onto Ethan'sHouse
 
     private bool hasSavedInventory;
 
@@ -98,11 +101,13 @@ public class GameSession : MonoBehaviour
         ReturnNodeHistory = new List<string>(_nodeHistory);
     }
 
-    public void ClearAllData()
+    public void ClearAllData() // Clear the data of the current save (NOT YET IMPLEMENTED)
     {
         flags.Clear();
         ReturnNodeHistory.Clear();
         collectedLootableIDs.Clear();
+        collectedReferenceIDs.Clear();
+        pendingDrawings.Clear();
         savedInventory = null;
         ReturnScene = null;
         ReturnNode = null;
@@ -176,5 +181,68 @@ public class GameSession : MonoBehaviour
     public bool HasSavedInventory()
     {
         return hasSavedInventory;
+    }
+
+    /// <summary>
+    /// Checks whether a real-world reference has already been collected
+    /// </summary>
+    public bool IsReferenceCollected(string _referenceID)
+    {
+        if (string.IsNullOrWhiteSpace(_referenceID))
+        {
+            return false;
+        }
+
+        return collectedReferenceIDs.Contains(_referenceID);
+    }
+
+    /// <summary>
+    /// Records a collected reference and the paper item it will produce
+    /// </summary>
+    public bool CollectReference(string _referenceID, ItemsData _drawingItem)
+    {
+        if (string.IsNullOrWhiteSpace(_referenceID))
+        {
+            Debug.LogWarning("GameSession: Cannot collect a reference with an empty ID.");
+            return false;
+        }
+
+        if (_drawingItem == null)
+        {
+            Debug.LogWarning($"GameSession: Reference '{_referenceID}' has no drawing item assigned.");
+            return false;
+        }
+
+        if (collectedReferenceIDs.Contains(_referenceID))
+        {
+            return false;
+        }
+
+        collectedReferenceIDs.Add(_referenceID);
+        pendingDrawings.Add(_referenceID, _drawingItem);
+
+        Debug.Log($"GameSession: Reference '{_referenceID}' collected. Drawing '{_drawingItem.ItemName}' is pending.");
+        return true;
+    }
+
+    /// <summary>
+    /// Returns a copy of all drawings waiting to be added to the inventory
+    /// </summary>
+    public Dictionary<string, ItemsData> GetPendingDrawings()
+    {
+        return new Dictionary<string, ItemsData>(pendingDrawings);
+    }
+
+    /// <summary>
+    /// Removes a drawing from the pending list after it has been added to inventory
+    /// </summary>
+    public void MarkDrawingProcessed(string _referenceID)
+    {
+        if (string.IsNullOrWhiteSpace(_referenceID))
+        {
+            return;
+        }
+
+        pendingDrawings.Remove(_referenceID);
     }
 }

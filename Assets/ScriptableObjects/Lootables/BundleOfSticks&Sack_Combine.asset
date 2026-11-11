@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86f30bd919f4cf44ebeba62fcb9c54a0, type: 3}
-  m_Name: BundleOfStick&Metal_Combine
+  m_Name: BundleOfSticks&Sack_Combine
   m_EditorClassIdentifier: Assembly-CSharp::CombinationData
   requiredItems:
-  - {fileID: 11400000, guid: 85dbecdcc496f134499ca5fb90fdd212, type: 2}
-  - {fileID: 11400000, guid: 24eab21d891c7f14fbe770d5dc5c7794, type: 2}
-  - {fileID: 11400000, guid: 513fc527e1394f04483e4c823671173c, type: 2}
-  resultItem: {fileID: 11400000, guid: 842bbb9b923a94d4d9482f78ad772dee, type: 2}
+  - {fileID: 11400000, guid: 842bbb9b923a94d4d9482f78ad772dee, type: 2}
+  - {fileID: 11400000, guid: 17568b112486ab04a89e0b38433be34b, type: 2}
+  resultItem: {fileID: 0}

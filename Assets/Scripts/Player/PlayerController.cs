@@ -3,8 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Will handle the player movement in the real world (Ethan's House)
-/// Will also return the player to the current level they were in when clicking on the scrapbook
+/// Handles player movement in the real world (Ethan's House) along with interactions with reference objects and the scrapbook
 /// </summary>
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -22,6 +21,9 @@ public class PlayerController : MonoBehaviour
     [Header("Scrapbook Interaction")]
     [SerializeField] private Camera interactionCamera;
     [SerializeField] private LayerMask scrapbookLayer;
+
+    [Header("Reference Pickup")]
+    [SerializeField] private LayerMask lootableLayer;
 
     private CharacterController characterController;
     private float verticalVelocity;
@@ -43,7 +45,11 @@ public class PlayerController : MonoBehaviour
         LookAround();
         MovePlayer();
         HandleCursor();
-        ScrapbookInteraction();
+
+        if (!ReferencePickupInteraction())
+        {
+            ScrapbookInteraction();
+        }
     }
 
     /// <summary>
@@ -82,7 +88,6 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
-        // Apply gravity continuously throughout the jump.
         verticalVelocity += gravity * Time.deltaTime;
 
         _movement.y = verticalVelocity;
@@ -90,7 +95,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Move the camera based on the Mouse
+    /// Move the camera based on the mouse
     /// </summary>
     private void LookAround()
     {
@@ -121,7 +126,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// If the player press escape (the pause button) unlock the mouse
+    /// If the player presses Escape, unlock the mouse
     /// </summary>
     private void HandleCursor()
     {
@@ -144,7 +149,39 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Handles when the player clicks on the scrapbook, send them to the scene they came from
+    /// Handles picking up reference objects in Ethan's House
+    /// </summary>
+    private bool ReferencePickupInteraction()
+    {
+        if (Mouse.current == null || interactionCamera == null)
+        {
+            return false;
+        }
+
+        if (!Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            return false;
+        }
+
+        Ray ray = interactionCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, lootableLayer))
+        {
+            ReferencePickup _referencePickup = hit.collider.GetComponentInParent<ReferencePickup>();
+
+            if (_referencePickup != null)
+            {
+                _referencePickup.PickUpReference();
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Handles when the player clicks on the scrapbook
     /// </summary>
     private void ScrapbookInteraction()
     {
@@ -166,6 +203,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Send the player back to the scene they came from when going to Ethan'sHouse
+    /// </summary>
     private void ReturnToScrapbook()
     {
         if (GameSession.Instance == null)
