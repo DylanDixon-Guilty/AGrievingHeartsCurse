@@ -228,7 +228,7 @@ public class GameSession : MonoBehaviour
     /// <summary>
     /// Returns a copy of all drawings waiting to be added to the inventory
     /// </summary>
-    public Dictionary<string, ItemsData> GetPendingDrawings()
+    public Dictionary<string, ItemsData> GetSavedDrawings()
     {
         return new Dictionary<string, ItemsData>(pendingDrawings);
     }

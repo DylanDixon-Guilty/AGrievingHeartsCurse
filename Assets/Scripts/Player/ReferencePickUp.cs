@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public class ReferencePickup : MonoBehaviour
 {
+    public string ItemName => drawingItem != null ? drawingItem.ItemName : string.Empty; // The name of the object we're picking up (Used in PlayerController)
+
     [Header("Reference Settings")]
     [SerializeField] private string referenceID;
     [SerializeField] private ItemsData drawingItem;

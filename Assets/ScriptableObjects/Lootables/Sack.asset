@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemsData
   ItemName: Sack
   ItemSprite: {fileID: 21300000, guid: 9fac8968d89661d46bbdd97124968362, type: 3}
-  HeldItemSprite: {fileID: 0}
+  HeldItemSprite: {fileID: 21300000, guid: 9fac8968d89661d46bbdd97124968362, type: 3}
   isCutSceneItem: 0

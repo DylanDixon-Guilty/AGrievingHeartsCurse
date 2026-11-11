@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 /// <summary>
 /// Handles player movement in the real world (Ethan's House) along with interactions with reference objects and the scrapbook
@@ -25,6 +26,10 @@ public class PlayerController : MonoBehaviour
     [Header("Reference Pickup")]
     [SerializeField] private LayerMask lootableLayer;
 
+    [Header("Pickup Prompt")]
+    [SerializeField] private GameObject pickupPrompt;
+    [SerializeField] private TMP_Text pickupPromptText;
+
     private CharacterController characterController;
     private float verticalVelocity;
     private float cameraPitch;
@@ -36,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        pickupPrompt.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -45,6 +51,8 @@ public class PlayerController : MonoBehaviour
         LookAround();
         MovePlayer();
         HandleCursor();
+
+        ReferencePickupPrompt();
 
         if (!ReferencePickupInteraction())
         {
@@ -146,6 +154,34 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+
+    /// <summary>
+    /// Displays a prompt when the player looks at a reference object
+    /// </summary>
+    private void ReferencePickupPrompt()
+    {
+        if (pickupPrompt == null || pickupPromptText == null ||
+            interactionCamera == null || Mouse.current == null)
+        {
+            return;
+        }
+
+        Ray ray = interactionCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, lootableLayer))
+        {
+            ReferencePickup _referencePickup = hit.collider.GetComponentInParent<ReferencePickup>();
+
+            if (_referencePickup != null)
+            {
+                pickupPromptText.text = "Pick Up " + _referencePickup.ItemName;
+                pickupPrompt.SetActive(true);
+                return;
+            }
+        }
+
+        pickupPrompt.SetActive(false);
     }
 
     /// <summary>

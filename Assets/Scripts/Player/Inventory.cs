@@ -87,6 +87,7 @@ public class Inventory : MonoBehaviour
         }
 
         RestoreInventoryState();
+        SaveDrawings();
         RefreshInventoryUI();
     }
 
@@ -609,6 +610,44 @@ public class Inventory : MonoBehaviour
     {
         hotbarItemNames[_slotIndex].gameObject.SetActive(false);
     }
+
+    /// <summary>
+    /// Adds drawings collected in Ethan'sHouse to the inventory
+    /// </summary>
+    private void SaveDrawings()
+    {
+        if (GameSession.Instance == null)
+        {
+            Debug.LogWarning("Inventory: GameSession was not found. Cannot process pending drawings.");
+            return;
+        }
+
+        Dictionary<string, ItemsData> _pendingDrawings = GameSession.Instance.GetSavedDrawings();
+
+        bool _inventoryChanged = false;
+
+        foreach (KeyValuePair<string, ItemsData> _drawing in _pendingDrawings)
+        {
+            if (AddItem(_drawing.Value))
+            {
+                GameSession.Instance.MarkDrawingProcessed(_drawing.Key);
+                _inventoryChanged = true;
+
+                Debug.Log($"Inventory: Processed drawing '{_drawing.Value.ItemName}'.");
+            }
+            else
+            {
+                Debug.LogWarning("Inventory is full. Remaining drawings will stay pending.");
+                break;
+            }
+        }
+
+        if (_inventoryChanged)
+        {
+            SaveInventoryState();
+        }
+    }
+
 
     /// <summary>
     /// Saves the current inventory contents to GameSession Script
