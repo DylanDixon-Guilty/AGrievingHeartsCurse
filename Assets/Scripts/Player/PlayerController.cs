@@ -158,9 +158,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        Ray ray = interactionCamera.ScreenPointToRay(
-            Mouse.current.position.ReadValue()
-        );
+        Ray ray = interactionCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
         if (Physics.Raycast(ray, out RaycastHit hit, 100f, scrapbookLayer))
         {
