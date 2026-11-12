@@ -612,6 +612,27 @@ public class Inventory : MonoBehaviour
     }
 
     /// <summary>
+    /// Checks to see if the player has the correct item for a conversation or puzzle
+    /// </summary>
+    public bool HasItem(string _itemName)
+    {
+        if (string.IsNullOrWhiteSpace(_itemName))
+        {
+            return false;
+        }
+
+        foreach (ItemsData _item in _items)
+        {
+            if (_item != null && _item.ItemName == _itemName)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
     /// Adds drawings collected in Ethan'sHouse to the inventory
     /// </summary>
     private void SaveDrawings()
