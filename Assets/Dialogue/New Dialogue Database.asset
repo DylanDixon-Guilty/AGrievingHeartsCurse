@@ -4859,7 +4859,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 9.333328, y: 9.200409}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1
   - id: 6
     fields:
@@ -5769,7 +5769,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: SendMessage(LoadScene,Level01(Chapter01),GameManager)
+        value: 'SendMessage(LoadScene,Level01(Chapter01),GameManager);
+
+          MaleGolemScene_Done
+          == true;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -5787,8 +5790,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 1310
+        x: 79.267395
+        y: 1311.4652
         width: 160
         height: 30
     entryGroups: []
