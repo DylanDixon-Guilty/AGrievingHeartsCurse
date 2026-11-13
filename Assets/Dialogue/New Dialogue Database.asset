@@ -4859,7 +4859,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 378}
     canvasZoom: 1
   - id: 6
     fields:
@@ -5714,10 +5714,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);
-
-          MaleGolemScene_Done
-          == true;'
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -5795,7 +5792,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 1038.0952}
     canvasZoom: 0.91
   - id: 7
     fields:
@@ -7336,7 +7333,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 23.214283}
+    canvasScrollPosition: {x: 0, y: 1932.1434}
     canvasZoom: 1.1199999
   syncInfo:
     syncActors: 0

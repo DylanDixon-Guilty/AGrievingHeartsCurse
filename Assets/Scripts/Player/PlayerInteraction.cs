@@ -41,7 +41,16 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (isDialogueActive || _menuFunctions.isPaused) //Checks to see if the player is in a dialogue
+        if (_menuFunctions != null)
+        {
+            if (_menuFunctions.isPaused) //Checks to see if the player is in a dialogue
+            {
+                _mouseIconController.SetCursor(MouseIconType.Default);
+                return;
+            }
+        }
+
+        if (isDialogueActive)
         {
             _mouseIconController.SetCursor(MouseIconType.Default);
             return;
