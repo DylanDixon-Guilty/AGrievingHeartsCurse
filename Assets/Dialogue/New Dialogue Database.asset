@@ -3748,7 +3748,7 @@ MonoBehaviour:
         priority: 2
       conditionsString: MaleGolemScene_Done == true and CheckInventoryItem("Bundle
         of Sticks & Metal") == true
-      userScript: return CheckInventoryItem("Bundle of Sticks & Metal") == true
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5714,7 +5714,10 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);'
+        value: '{{default}}; SendMessage(ApplyShot,MaleGolemRoomShot11,GameManager);
+
+          MaleGolemScene_Done
+          == true;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -5769,10 +5772,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 'SendMessage(LoadScene,Level01(Chapter01),GameManager);
-
-          MaleGolemScene_Done
-          == true;'
+        value: SendMessage(LoadScene,Level01(Chapter01),GameManager);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -5795,7 +5795,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 832.96716}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.91
   - id: 7
     fields:
