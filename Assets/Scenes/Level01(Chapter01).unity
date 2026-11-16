@@ -275,7 +275,7 @@ MonoBehaviour:
   flagToSetOnConversationEnd: 
   requiredFlag: 
   _objectSpawner: {fileID: 0}
-  _dialogueTrigger: {fileID: 0}
+  _dialogueTrigger: {fileID: 581572947}
   _cutSceneOverlay: {fileID: 1057350620}
 --- !u!212 &69267357
 SpriteRenderer:
@@ -4455,7 +4455,7 @@ MonoBehaviour:
   flagToSetOnConversationEnd: 
   requiredFlag: 
   _objectSpawner: {fileID: 0}
-  _dialogueTrigger: {fileID: 0}
+  _dialogueTrigger: {fileID: 581572947}
   _cutSceneOverlay: {fileID: 1057350620}
 --- !u!65 &943900110
 BoxCollider:
@@ -7906,7 +7906,7 @@ MonoBehaviour:
   flagToSetOnConversationEnd: HiddenLanguageDiscovered
   requiredFlag: 
   _objectSpawner: {fileID: 0}
-  _dialogueTrigger: {fileID: 0}
+  _dialogueTrigger: {fileID: 581572947}
   _cutSceneOverlay: {fileID: 1057350620}
 --- !u!1 &1632819559
 GameObject:
@@ -9925,6 +9925,10 @@ PrefabInstance:
       propertyPath: _cutSceneOverlay
       value: 
       objectReference: {fileID: 1057350620}
+    - target: {fileID: 8531497978553675670, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
+      propertyPath: _dialogueTrigger
+      value: 
+      objectReference: {fileID: 581572947}
     - target: {fileID: 8531497978553675670, guid: a5e15e791f61146438f5ea31887ebc84, type: 3}
       propertyPath: _playerInteraction
       value: 

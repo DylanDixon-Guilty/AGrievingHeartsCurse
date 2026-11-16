@@ -16,16 +16,15 @@ public class DialogueStarter : MonoBehaviour
     [SerializeField] private DialogueTrigger _dialogueTrigger;
     [SerializeField] private CutSceneOverlay _cutSceneOverlay;
 
-
     private void OnDisable()
     {
-        if (DialogueManager.instance != null) DialogueManager.instance.conversationEnded -= OnConversationEnd;
-
+        if (DialogueManager.instance != null)
+        {
+            DialogueManager.instance.conversationEnded -= OnConversationEnd;
+            DialogueManager.instance.conversationEnded -= OnExternalConversationEnd;
+        }
     }
 
-    /// <summary>
-    /// Makes a specific conversation begin based on the 'conversationName'
-    /// </summary>
     public void StartDialogue()
     {
         mainUI.SetActive(false);
@@ -35,12 +34,55 @@ public class DialogueStarter : MonoBehaviour
         DialogueManager.StartConversation(conversationName);
     }
 
-    /// <summary>
-    /// What information to set when the conversation is over
-    /// </summary>
+    public static bool StartExternalDialogue(string _conversationName)
+    {
+        DialogueStarter dialogueStarter = FindFirstObjectByType<DialogueStarter>();
+
+        if (dialogueStarter == null)
+        {
+            Debug.LogError("No active DialogueStarter was found in the gameplay scene. Cannot prepare the return conversation.");
+            return false;
+        }
+
+        if (dialogueStarter.mainUI == null || dialogueStarter._playerInteraction == null)
+        {
+            Debug.LogError("The selected DialogueStarter is missing its Main UI or PlayerInteraction reference.");
+            return false;
+        }
+
+        if (DialogueManager.instance == null)
+        {
+            Debug.LogError("DialogueManager was not found. Cannot start the return conversation.");
+            return false;
+        }
+
+        dialogueStarter.PrepareForExternalDialogue(_conversationName);
+        return true;
+    }
+
+    private void PrepareForExternalDialogue(string _conversationName)
+    {
+        mainUI.SetActive(false);
+        _playerInteraction.SetDialogueActive(true);
+
+        DialogueManager.instance.conversationEnded -= OnExternalConversationEnd;
+        DialogueManager.instance.conversationEnded += OnExternalConversationEnd;
+
+        DialogueManager.StartConversation(_conversationName);
+    }
+
+    private void OnExternalConversationEnd(Transform _actor)
+    {
+        DialogueManager.instance.conversationEnded -= OnExternalConversationEnd;
+
+        mainUI.SetActive(true);
+        _playerInteraction.SetDialogueActive(false);
+    }
+
     private void OnConversationEnd(Transform _actor)
     {
         DialogueManager.instance.conversationEnded -= OnConversationEnd;
+
         bool _progressionCompleted = false;
 
         if (!string.IsNullOrEmpty(flagToSetOnConversationEnd))
@@ -52,18 +94,15 @@ public class DialogueStarter : MonoBehaviour
             }
         }
 
-        //If spawning in a new object after the dialogue has concluded
         if (_objectSpawner != null && _progressionCompleted)
-        {
             _objectSpawner.SpawnObject();
-        }
-        //If a dialogue was triggered by a DialogueTrigger, disable it
-        if (_dialogueTrigger != null)
-        {
-            _dialogueTrigger.DisableTrigger();
-        }
 
-        _cutSceneOverlay.ClearArtwork();
+        if (_dialogueTrigger != null)
+            _dialogueTrigger.DisableTrigger();
+
+        if (_cutSceneOverlay != null)
+            _cutSceneOverlay.ClearArtwork();
+
         mainUI.SetActive(true);
         _playerInteraction.SetDialogueActive(false);
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -41,27 +42,30 @@ public class CutSceneController : MonoBehaviour
     {
         string conversationName = null;
 
-        if (startConversationOnSceneLoad)
+        bool isCutScenes = SceneManager.GetActiveScene().name == "CutScenes";
+
+        if (isCutScenes)
         {
-            conversationName = CutsceneLaunchData.ConsumeConversation();
-
-            // Use the Inspector test conversation if no conversation was passed
-            if (string.IsNullOrWhiteSpace(conversationName))
+            if (startConversationOnSceneLoad)
             {
-                conversationName = testConversationName;
-            }
+                conversationName = CutsceneLaunchData.ConsumeConversation();
 
-            if (string.IsNullOrWhiteSpace(conversationName))
-            {
-                Debug.LogWarning("CutSceneController: No conversation name was provided. " + "The dialogue UI will still be switched.", this);
+                if (string.IsNullOrWhiteSpace(conversationName))
+                {
+                    conversationName = testConversationName;
+                }
             }
+        }
+        else
+        {
+            // Gameplay scenes check for an optional returning conversation.
+            conversationName = CutsceneLaunchData.ConsumeReturnConversation();
         }
 
         StartCoroutine(SwitchDialogueUIAndStartConversation(conversationName));
     }
 
-    private System.Collections.IEnumerator SwitchDialogueUIAndStartConversation(
-        string _conversationName)
+    private System.Collections.IEnumerator SwitchDialogueUIAndStartConversation(string _conversationName)
     {
         // Allow the scene to initialize
         yield return null;
@@ -121,11 +125,19 @@ public class CutSceneController : MonoBehaviour
             }
         }
 
-        // Only start a conversation if a name was provided
+        // Only start a conversation if a name was provided (Also check if this a going or a returning Conversation)
         if (!string.IsNullOrWhiteSpace(_conversationName))
         {
             Debug.Log("Starting conversation. Active conversation state: " + DialogueManager.isConversationActive);
-            DialogueManager.StartConversation(_conversationName);
+
+            if (SceneManager.GetActiveScene().name == "CutScenes")
+            {
+                DialogueManager.StartConversation(_conversationName);
+            }
+            else
+            {
+                DialogueStarter.StartExternalDialogue(_conversationName);
+            }
         }
     }
 
@@ -244,10 +256,24 @@ public class CutSceneController : MonoBehaviour
     }
 
     /// <summary>
-    /// Call this function in a Dialogue Node to load another scene
+    /// Loads to a certain scene and OPTIONALLY starts a conversation after returning
     /// </summary>
-    private void LoadScene(string _sceneName)
+    private void LoadScene(string _returnConversation)
     {
+        string[] values = _returnConversation.Split('|');
+
+        string _sceneName = values[0].Trim();
+        string _conversationToStart = values.Length > 1 ? values[1].Trim() : "BLANK";
+
+        if (!string.Equals(_conversationToStart, "BLANK")) //If not BLANK, start a new conversation in the separate Scene
+        {
+            CutsceneLaunchData.SetReturnConversation(string.IsNullOrWhiteSpace(_conversationToStart) ? null : _conversationToStart.Trim());
+        }
+        else
+        {
+            CutsceneLaunchData.SetReturnConversation(null);
+            Debug.Log("No return conversation was provided.");
+        }
 
 
         DialogueManager.StopConversation();

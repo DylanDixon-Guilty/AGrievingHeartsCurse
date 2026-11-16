@@ -20,7 +20,7 @@ public class GameProgression : MonoBehaviour
     }
 
     /// <summary>
-    /// Unlocks the ability to travel to the real-world scene
+    /// Unlocks flags that are true between scenes
     /// </summary>
     public void UnlockFlag(string _flagName)
     {
