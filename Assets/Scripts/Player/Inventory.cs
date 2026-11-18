@@ -616,19 +616,23 @@ public class Inventory : MonoBehaviour
     /// </summary>
     public bool HasItem(string _itemName)
     {
-        if (string.IsNullOrWhiteSpace(_itemName))
-        {
-            return false;
-        }
+        Debug.Log($"Inventory: Checking for '{_itemName}'.");
 
         foreach (ItemsData _item in _items)
         {
-            if (_item != null && _item.ItemName == _itemName)
+            if (_item != null)
             {
-                return true;
+                Debug.Log($"Inventory: Found '{_item.ItemName}'.");
+
+                if (_item.ItemName == _itemName)
+                {
+                    Debug.Log($"Inventory: Match found for '{_itemName}'.");
+                    return true;
+                }
             }
         }
 
+        Debug.LogWarning($"Inventory: Could not find '{_itemName}'.");
         return false;
     }
 

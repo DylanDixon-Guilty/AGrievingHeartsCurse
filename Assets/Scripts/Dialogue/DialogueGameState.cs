@@ -14,13 +14,14 @@ public class DialogueGameState : MonoBehaviour
     {
         Lua.RegisterFunction(nameof(CheckGameStateFlag), this, SymbolExtensions.GetMethodInfo(() => CheckGameStateFlag(string.Empty)));
         Lua.RegisterFunction(nameof(SetGameStateFlag), this, SymbolExtensions.GetMethodInfo(() => SetGameStateFlag(string.Empty, false)));
-        Lua.UnregisterFunction(nameof(CheckInventoryItem));
+        Lua.RegisterFunction(nameof(CheckInventoryItem), this, SymbolExtensions.GetMethodInfo(() => CheckInventoryItem(string.Empty)));
     }
 
     private void OnDestroy()
     {
         Lua.UnregisterFunction(nameof(CheckGameStateFlag));
         Lua.UnregisterFunction(nameof(SetGameStateFlag));
+        Lua.UnregisterFunction(nameof(CheckInventoryItem));
     }
 
     public bool CheckGameStateFlag(string _flagName)

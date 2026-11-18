@@ -3522,13 +3522,13 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 1
+        destinationDialogueID: 4
         isConnector: 0
         priority: 2
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 4
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3746,7 +3746,8 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      conditionsString: Variable["MaleGolemScene_Done"] == true
+      conditionsString: CheckInventoryItem("Bundle of Sticks & Metal") and (Variable["MaleGolemScene_Done"]
+        == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3754,7 +3755,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 289.94174
-        y: 134.78432
+        y: 137.22334
         width: 160
         height: 30
     - id: 5
@@ -4858,8 +4859,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 8.943054}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 19.96687, y: 28.99878}
+    canvasZoom: 1
   - id: 6
     fields:
     - title: Title
