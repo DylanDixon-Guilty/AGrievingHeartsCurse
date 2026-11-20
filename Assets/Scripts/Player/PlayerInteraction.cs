@@ -43,7 +43,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (_menuFunctions != null)
         {
-            if (_menuFunctions.isPaused) //Checks to see if the player is in a dialogue
+            if (LoadingScreen.IsTransitioning || _menuFunctions.isPaused) //Checks to see if the player is in a dialogue or in between switching scenes
             {
                 _mouseIconController.SetCursor(MouseIconType.Default);
                 return;
@@ -117,14 +117,23 @@ public class PlayerInteraction : MonoBehaviour
 
         if (hotspot != null)
         {
-            // A named cutscene takes priority over normal camera movement.
+            // A named cutscene takes priority over normal camera movement
             if (!string.IsNullOrWhiteSpace(hotspot.cutSceneName))
             {
+                if (_inventory != null)
+                {
+                    _inventory.SaveInventoryState();
+                }
+                else
+                {
+                    Debug.LogWarning("PlayerInteraction: Inventory is not assigned.");
+                }
+
                 hotspot.StartCutScene(hotspot.cutSceneName);
                 return;
             }
 
-            // Blank cutscene name: behave like a normal camera hotspot.
+            // Blank cutscene name: behave like a normal camera hotspot
             MoveCamera(hotspot.Node);
         }
 

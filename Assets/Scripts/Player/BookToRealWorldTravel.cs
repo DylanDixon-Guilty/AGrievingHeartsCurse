@@ -85,7 +85,7 @@ public class BookToRealWorldTravel : MonoBehaviour
 
         _inventory.SaveInventoryState(); //Saves the inventory of the player before leaving the scene
 
-        SceneManager.LoadScene("Ethan'sHouse");
+        LoadingScreen.LoadScene("Ethan'sHouse");
     }
 
     private void ResetTabHold()

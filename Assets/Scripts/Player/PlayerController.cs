@@ -258,6 +258,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene(_returnScene);
+        LoadingScreen.LoadScene(_returnScene);
     }
 }

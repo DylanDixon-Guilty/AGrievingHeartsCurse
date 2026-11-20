@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using PixelCrushers.DialogueSystem;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -277,6 +276,6 @@ public class CutSceneController : MonoBehaviour
 
 
         DialogueManager.StopConversation();
-        SceneManager.LoadScene(_sceneName);
+        LoadingScreen.LoadScene(_sceneName);
     }
 }

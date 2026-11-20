@@ -39,6 +39,6 @@ public class CameraHotSpot : MonoBehaviour
         CutsceneLaunchData.SetConversation(conversationToStart);
 
         // Load the cutscene scene.
-        SceneManager.LoadScene(CutScene_Scene);
+        LoadingScreen.LoadScene(CutScene_Scene);
     }
 }
