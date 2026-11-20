@@ -267,6 +267,12 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 0
         destinationConversationID: 1
+        destinationDialogueID: 19
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
         destinationDialogueID: 18
         isConnector: 0
         priority: 2
@@ -1222,8 +1228,57 @@ MonoBehaviour:
         y: 133.45097
         width: 160
         height: 30
+    - id: 19
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Description
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Dialogue Text
+        value: What are you hiding here?
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: CheckGameStateFlag("Pillar_Done") == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 467.05508
+        y: 134.30421
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1225.2429}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 1.0299999
   - id: 2
     fields:
@@ -2621,7 +2676,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 7.119751}
     canvasZoom: 1.03
   - id: 3
     fields:
@@ -3522,13 +3577,13 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 1
+        destinationDialogueID: 4
         isConnector: 0
         priority: 2
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 4
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3593,8 +3648,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 134.7843
+        x: 80.81299
+        y: 135.59729
         width: 160
         height: 30
     - id: 2
@@ -3746,8 +3801,8 @@ MonoBehaviour:
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
-      conditionsString: CheckGameStateFlag("MaleGolemScene_Done") == true and CheckInventoryItem("Bundle
-        of Sticks & Metal") == true
+      conditionsString: CheckInventoryItem("Bundle of Sticks & Metal") and (Variable["MaleGolemScene_Done"]
+        == true)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3755,7 +3810,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 289.94174
-        y: 134.78432
+        y: 137.22334
         width: 160
         height: 30
     - id: 5
@@ -4859,8 +4914,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 374.7967}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 19.96687, y: 28.99878}
+    canvasZoom: 1
   - id: 6
     fields:
     - title: Title
@@ -5739,7 +5794,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 80
-        y: 1226
+        y: 1226.7325
         width: 160
         height: 30
     - id: 15
@@ -5769,7 +5824,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: SendMessage(LoadScene,Level01(Chapter01),GameManager);
+        value: SendMessage(LoadScene,Level01(Chapter01)|MaleGolemRoom_Part2,GameManager);
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 6
@@ -5787,12 +5842,12 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 79.267395
-        y: 1311.4652
+        x: 80
+        y: 1312.9303
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 928.9376}
+    canvasScrollPosition: {x: 0, y: 1129.6704}
     canvasZoom: 0.91
   - id: 7
     fields:
@@ -7310,7 +7365,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: SendMessage(UnlockFlag,MaleGolemScene_Done,GameSession(SavedData));
+        value: 
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 7
@@ -7322,14 +7377,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: Variable["MaleGolemScene_Done"] = true
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 2234
+        x: 80.595245
+        y: 2231.0237
         width: 160
         height: 30
     entryGroups: []

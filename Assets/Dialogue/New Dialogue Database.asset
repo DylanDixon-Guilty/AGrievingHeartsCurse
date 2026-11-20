@@ -431,12 +431,7 @@ MonoBehaviour:
           SetDialoguePanel(false,
           immediate);
 
-          SetContinueMode(false);
-
-          required SetDialoguePanel(true)@3;
-
-          required
-          SetContinueMode(true)@4;'
+          required SetDialoguePanel(true)@3;'
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1278,7 +1273,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 0, y: 913.9162}
     canvasZoom: 1.0299999
   - id: 2
     fields:
@@ -2676,7 +2671,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 7.119751}
+    canvasScrollPosition: {x: 0, y: 1287.3787}
     canvasZoom: 1.03
   - id: 3
     fields:
